@@ -1,11 +1,11 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: 'AIzaSyCS_XCyI0cldT9OAqW-YFqX58Ev_0bpOIs',
-    authDomain: 'npyc-dev.firebaseapp.com',
-    databaseURL: 'https://npyc-dev.firebaseio.com',
-    projectId: 'npyc-dev',
-    storageBucket: '',
-    messagingSenderId: '185079237874'
+    apiKey: "AIzaSyBME1YDwB5kM8H4EVhh3Fkqa-goq-qQuNc",
+    authDomain: "qcyc-dev.firebaseapp.com",
+    databaseURL: "https://qcyc-dev.firebaseio.com",
+    projectId: "qcyc-dev",
+    storageBucket: "qcyc-dev.appspot.com",
+    messagingSenderId: "1015477329350"
   }
 };

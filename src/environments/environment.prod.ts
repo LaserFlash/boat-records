@@ -1,11 +1,11 @@
 export const environment = {
   production: true,
   firebase: {
-    apiKey: 'AIzaSyCZzR8zwpm6mg4lL5woVJs7UXdzosAUtzA',
-    authDomain: 'npyc-usagemaintenancetracker.firebaseapp.com',
-    databaseURL: 'https://npyc-usagemaintenancetracker.firebaseio.com',
-    projectId: 'npyc-usagemaintenancetracker',
-    storageBucket: 'npyc-usagemaintenancetracker.appspot.com',
-    messagingSenderId: '675501230461'
+    apiKey: "AIzaSyCuC9g6sVhTYoPSqOg8yVmZXX1f7JEXPZ4",
+    authDomain: "qcyc-usagemaintenancetracker.firebaseapp.com",
+    databaseURL: "https://qcyc-usagemaintenancetracker.firebaseio.com",
+    projectId: "qcyc-usagemaintenancetracker",
+    storageBucket: "qcyc-usagemaintenancetracker.appspot.com",
+    messagingSenderId: "317211543661"
   }
 };

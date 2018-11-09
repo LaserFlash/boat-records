@@ -65,7 +65,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "NPYC-UsageMaintenaceTracker:build"
+            "browserTarget": "QCYC-UsageMaintenaceTracker:build"
           }
         },
         "test": {
@@ -114,7 +114,7 @@
           },
           "configurations": {
             "production": {
-              "devServerTarget": "NPYC-UsageMaintenaceTracker:serve:production"
+              "devServerTarget": "QCYC-UsageMaintenaceTracker:serve:production"
             }
           }
         },
@@ -130,5 +130,5 @@
       }
     }
   },
-  "defaultProject": "NPYC-UsageMaintenaceTracker"
+  "defaultProject": "QCYC-UsageMaintenaceTracker"
 }
