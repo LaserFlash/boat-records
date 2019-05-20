@@ -46,7 +46,7 @@
     <button mat-button class="nav-button" (click)="toggleDark(); sidenav.close();">TOGGLE DARK THEME</button>
     <br />
     <button mat-button class="nav-button" (click)="sidenav.close(); print();">PRINT</button>
-    <mat-list style="position: relative; height: auto; padding-top:64px">
+    <mat-list style="position: relative; height: auto;">
       <a style="text-decoration: none;" href="https://laserflash.tk/" mat-list-item>
       ©2017 BrynTBennett
     </a>
@@ -59,25 +59,26 @@
     </mat-list>
   </mat-sidenav>
 
-  <div id="scrollId" class="sidenav-content">
-    <div id="section-to-print">
-      <router-outlet></router-outlet>
+  <mat-sidenav-content class="noScroll">
+    <div id="scrollId" class="sidenav-content">
+      <div id="section-to-print">
+        <router-outlet></router-outlet>
+      </div>
     </div>
-  </div>
+    <!-- Bottom Navigation Bar -->
+    <div class="bottom-navigation bg-color-primary" fxHide.gt-sm>
+      <nav mat-tab-nav-bar>
+        <a fxFlex="calc(100%/{{routeLinks.length}})" mat-tab-link *ngFor="let routeLink of routeLinks" [routerLink]="getRouteLink(routeLink.link)" [active]="checkActive(routeLink.link)">
 
-  <!-- Bottom Navigation Bar -->
-  <div class="bottom-navigation bg-color-primary" fxHide.gt-sm>
-    <nav mat-tab-nav-bar>
-      <a fxFlex="calc(100%/{{routeLinks.length}})" mat-tab-link *ngFor="let routeLink of routeLinks" [routerLink]="getRouteLink(routeLink.link)" [active]="checkActive(routeLink.link)">
-
-        <div fxLayout="column">
-          <div fxFlex>
-            <mat-icon svgIcon="{{routeLink.link}}"></mat-icon>
+          <div fxLayout="column">
+            <div fxFlex>
+              <mat-icon svgIcon="{{routeLink.link}}"></mat-icon>
+            </div>
+            <div style="margin-top: -10px;" fxFlex>{{routeLink.label}}</div>
           </div>
-          <div style="margin-top: -10px;" fxFlex>{{routeLink.label}}</div>
-        </div>
 
-      </a>
-    </nav>
-  </div>
+        </a>
+      </nav>
+    </div>
+  </mat-sidenav-content>
 </mat-sidenav-container>
