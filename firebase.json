@@ -25,18 +25,5 @@
         "destination": "/index.html"
       }
     ]
-  },
-  "functions": {
-    "predeploy": [
-      "npm --prefix ./functions/ run lint",
-      "npm --prefix ./functions/ run build"
-    ],
-    "source": "functions"
-  },
-  "storage": {
-    "rules": "storage.rules"
-  },
-  "database": {
-    "rules": "database.rules.json"
   }
 }
