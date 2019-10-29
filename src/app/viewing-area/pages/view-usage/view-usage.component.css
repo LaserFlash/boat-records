@@ -1,0 +1,9 @@
+@media print{
+    .content{
+        min-height:40cm;
+    }
+}
+
+.controls {
+  margin-top: 16px; 
+}

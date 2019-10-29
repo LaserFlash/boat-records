@@ -1,9 +1,0 @@
-@media print{
-    .content{
-        min-height:40cm;
-    }
-}
-
-cdk-virtual-scroll-viewport {
-  height: 100vh;
-}
