@@ -1,12 +1,12 @@
 export const environment = {
   production: false,
-  version: 'DEV',
+  version: "DEV",
   firebase: {
-    apiKey: "AIzaSyBME1YDwB5kM8H4EVhh3Fkqa-goq-qQuNc",
-    authDomain: "qcyc-dev.firebaseapp.com",
-    databaseURL: "https://qcyc-dev.firebaseio.com",
-    projectId: "qcyc-dev",
-    storageBucket: "qcyc-dev.appspot.com",
-    messagingSenderId: "1015477329350"
-  }
+    apiKey: "AIzaSyCuC9g6sVhTYoPSqOg8yVmZXX1f7JEXPZ4",
+    authDomain: "qcyc-usagemaintenancetracker.firebaseapp.com",
+    databaseURL: "https://qcyc-usagemaintenancetracker.firebaseio.com",
+    projectId: "qcyc-usagemaintenancetracker",
+    storageBucket: "qcyc-usagemaintenancetracker.appspot.com",
+    messagingSenderId: "317211543661",
+  },
 };
