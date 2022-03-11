@@ -1,9 +1,33 @@
-<div class="noPrint" fxFlex.gt-lg="calc(50% -1280px)" fxFlex="20" fxFlex.lt-md="2"></div>
+<div
+  class="noPrint"
+  fxFlex.gt-lg="calc(50% -1280px)"
+  fxFlex="20"
+  fxFlex.lt-md="2"
+></div>
 <div fxFlex.gt-lg="1280px" fxFlex="100" fxLayout="column">
-  <usage-card fxGrow *ngFor="let u of usageService.currentSelectedUsages | async; let i = index; trackBy: trackByIdx" [usage]="u"></usage-card>
+  <usage-card
+    fxGrow
+    *ngFor="
+      let u of usageService.currentSelectedUsages | async;
+      let i = index;
+      trackBy: trackByIdx
+    "
+    [usage]="u"
+  ></usage-card>
   <mat-card class="controls" fxFlex="100">
-    <mat-paginator [length]="totalNumberItems" [pageSize]="usageService.batch_size" [pageSizeOptions]="pageSizeOptions" [pageIndex]="usageService.pageIndex" (page)="getUsages($event)">
+    <mat-paginator
+      [length]="usageService.batch_size * (usageService.pageIndex + 2)"
+      [pageSize]="usageService.batch_size"
+      [pageSizeOptions]="pageSizeOptions"
+      [pageIndex]="usageService.pageIndex"
+      (page)="getUsages($event)"
+    >
     </mat-paginator>
   </mat-card>
 </div>
-<div class="noPrint" fxFlex.gt-lg="calc(50% -1280px)" fxFlex="20" fxFlex.lt-md="2"></div>
+<div
+  class="noPrint"
+  fxFlex.gt-lg="calc(50% -1280px)"
+  fxFlex="20"
+  fxFlex.lt-md="2"
+></div>
