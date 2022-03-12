@@ -1,14 +1,8 @@
 import { Injectable } from "@angular/core";
 import { AngularFirestore } from "@angular/fire/firestore";
-import { KnownBoatsService } from "../../../../core/constants/known-boats/known-boats.service";
 import { UsageInfo, UsageInfoID } from "../../../../core/objects/usageInfo";
 import { BehaviorSubject } from "rxjs/BehaviorSubject";
 import { map } from "rxjs/operators";
-import {
-  WindSpeedConversionHelper,
-  WaterStateConversionHelper,
-  WindDirectionConversionHelper,
-} from "../../../../core/constants/menu-names/nameConversion";
 
 @Injectable()
 export class BoatUsageService {
@@ -20,7 +14,7 @@ export class BoatUsageService {
   private previousUsageSet: any[] = [];
   public batch_size: number = 20;
 
-  constructor(private db: AngularFirestore, private BOATS: KnownBoatsService) {
+  constructor(private db: AngularFirestore) {
     this.getBatch().subscribe((val) => {
       this.currentSelectedUsages.next(val);
     });
@@ -50,29 +44,10 @@ export class BoatUsageService {
     this.offset = new Date();
     this.previousUsageSet = [];
     this.getBatch().subscribe((val) => {
-      console.log(
-        val.map((v) => ({
-          boat: this.BOATS.getBoatName(v.boatID),
-          driver: v.driver,
-          otherCrew: v.otherCrew
-            .map(({ name }) => name)
-            .filter(Boolean)
-            .join(" - "),
-          hours: v.duration.toPrecision(2),
-          startTime: new Date(v.startTime.seconds * 1000).toLocaleString(),
-          endTime: new Date(v.endTime.seconds * 1000).toLocaleString(),
-          windSpeed: WindSpeedConversionHelper.windSpeedFromNumber(v.windSpeed),
-          windDirection: WindDirectionConversionHelper.windDirectionFromNumber(
-            v.windDirection
-          ),
-          waterState: WaterStateConversionHelper.waterStateFromNumber(
-            v.waterState
-          ),
-        }))
-      );
       this.currentSelectedUsages.next(val);
     });
   }
+ 
 
   /* Get a the next set of usage data from DB */
   getBatch() {
