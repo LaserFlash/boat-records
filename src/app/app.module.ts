@@ -19,7 +19,6 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { OverlayContainer } from '@angular/cdk/overlay';
-import { ScrollingModule } from '@angular/cdk/scrolling';
 
 
 import { SharedServicesModule } from './core/shared-services.module';
@@ -38,6 +37,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 
 import { FirebaseUIModule, firebase, firebaseui } from 'firebaseui-angular';
+import { ThemeService } from 'ng2-charts';
 
 
 const firebaseUiAuthConfig: firebaseui.auth.Config = {
@@ -80,6 +80,7 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
     SharedServicesModule.forRoot()
   ],
   providers: [
+    ThemeService,
     { provide: HAMMER_GESTURE_CONFIG, useClass: HammerConfig }
   ],
   bootstrap: [AppComponent]
