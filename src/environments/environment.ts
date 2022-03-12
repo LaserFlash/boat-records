@@ -7,6 +7,6 @@ export const environment = {
     databaseURL: "https://qcyc-usagemaintenancetracker.firebaseio.com",
     projectId: "qcyc-usagemaintenancetracker",
     storageBucket: "qcyc-usagemaintenancetracker.appspot.com",
-    messagingSenderId: "317211543661",
+    messagingSenderId: "317211543661"
   },
 };
