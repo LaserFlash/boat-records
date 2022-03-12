@@ -24,7 +24,6 @@ export class AppComponent implements OnInit {
   routeLinks = [
     { label: 'Report', link: 'report', name: 'report' },
     { label: 'View', link: 'view', name: 'view' },
-    { label: 'Stats', link: 'stats', name: 'stats' },
     { label: 'Docs', link: 'docs', name: 'docs' },
   ];
 
@@ -53,8 +52,6 @@ export class AppComponent implements OnInit {
       sanitizer.bypassSecurityTrustResourceUrl('assets/images/file-document.svg'))
       .addSvgIcon('report',
         sanitizer.bypassSecurityTrustResourceUrl('assets/images/clipboard-outline.svg'))
-      .addSvgIcon('stats',
-        sanitizer.bypassSecurityTrustResourceUrl('assets/images/poll.svg'))
       .addSvgIcon('view',
         sanitizer.bypassSecurityTrustResourceUrl('assets/images/view-stream.svg'));
 

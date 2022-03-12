@@ -1,11 +1,7 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes, Router } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  {
-    path: 'stats',
-    loadChildren: () => import('./stats-area/stats-area.module').then(m => m.StatsAreaModule)
-  },
   {
     path: 'docs',
     loadChildren: () => import('./document-area/document-area.module').then(m => m.DocumentAreaModule)
