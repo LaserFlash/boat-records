@@ -5,6 +5,19 @@
   fxFlex.lt-md="2"
 ></div>
 <div fxFlex.gt-lg="1280px" fxFlex="100" fxLayout="column">
+  <mat-card>
+    <div fxFlex="100" fxLayout="column" fxLayout.md="row">
+      <button mat-flat-button color="primary" (click)="exportCSV()">Export to CSV</button>
+      <mat-paginator
+        [length]="usageService.batch_size * (usageService.pageIndex + 2)"
+        [pageSize]="usageService.batch_size"
+        [pageSizeOptions]="pageSizeOptions"
+        [pageIndex]="usageService.pageIndex"
+        (page)="getUsages($event)"
+        style="margin-left: auto;"
+      ></mat-paginator>
+    </div>
+  </mat-card>
   <usage-card
     fxGrow
     *ngFor="
@@ -14,15 +27,18 @@
     "
     [usage]="u"
   ></usage-card>
-  <mat-card class="controls" fxFlex="100">
-    <mat-paginator
-      [length]="usageService.batch_size * (usageService.pageIndex + 2)"
-      [pageSize]="usageService.batch_size"
-      [pageSizeOptions]="pageSizeOptions"
-      [pageIndex]="usageService.pageIndex"
-      (page)="getUsages($event)"
-    >
-    </mat-paginator>
+  <mat-card class="controls">
+    <div fxFlex="100" fxLayout="column" fxLayout.md="row">
+      <button mat-flat-button color="primary" (click)="exportCSV()">Export to CSV</button>
+      <mat-paginator
+        [length]="usageService.batch_size * (usageService.pageIndex + 2)"
+        [pageSize]="usageService.batch_size"
+        [pageSizeOptions]="pageSizeOptions"
+        [pageIndex]="usageService.pageIndex"
+        (page)="getUsages($event)"
+        style="margin-left: auto;"
+      ></mat-paginator>
+    </div>
   </mat-card>
 </div>
 <div
