@@ -1,0 +1,10 @@
+name: Build on Pull Rquest
+"on": pull_request
+jobs:
+  build:
+    if: "${{ github.event.pull_request.head.repo.full_name == github.repository }}"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: npm ci && npm run build:prod
+
