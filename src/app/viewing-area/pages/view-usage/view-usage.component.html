@@ -6,7 +6,7 @@
 ></div>
 <div fxFlex.gt-lg="1280px" fxFlex="100" fxLayout="column">
   <mat-card>
-    <div fxFlex="100" fxLayout="column" fxLayout.md="row">
+    <div fxFlex="100" fxLayout="column" fxLayout.gt-md="row">
       <button mat-flat-button color="primary" (click)="exportCSV()">Export to CSV</button>
       <mat-paginator
         [length]="usageService.batch_size * (usageService.pageIndex + 2)"
@@ -28,7 +28,7 @@
     [usage]="u"
   ></usage-card>
   <mat-card class="controls">
-    <div fxFlex="100" fxLayout="column" fxLayout.md="row">
+    <div fxFlex="100" fxLayout="column" fxLayout.gt-md="row">
       <button mat-flat-button color="primary" (click)="exportCSV()">Export to CSV</button>
       <mat-paginator
         [length]="usageService.batch_size * (usageService.pageIndex + 2)"
