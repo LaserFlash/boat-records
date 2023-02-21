@@ -1,6 +1,9 @@
 {
   "name": "QCYC-UsageMaintenaceTracker",
   "version": "0.0.1",
+  "engines": {
+    "node": "16.x"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve  --poll 500",
