@@ -1,4 +1,4 @@
-<mat-card>
+<mat-card appearance="outlined">
 
   <div fxLayout='row' fxLayout.lt-lg='column'>
 
@@ -24,14 +24,14 @@
         </span>
       </div>
       <div fxFlex style="padding-bottom: 8px;">
-        <mat-chip-list>
-          <mat-chip *ngFor="let filter of appliedFilters" (click)="addFilter(filter) " selected="true"> {{getBoatName(filter)}}
+        <mat-chip-listbox>
+          <mat-chip-option *ngFor="let filter of appliedFilters" (click)="addFilter(filter) " selected="true"> {{getBoatName(filter)}}
             <mat-icon style="font-size:16px;height:16px;width:16px;">cancel</mat-icon>
-          </mat-chip>
-          <mat-chip *ngFor="let filter of partappliedFilters" (click)="addPartFilter(filter)" selected="true"> {{filter}}
+          </mat-chip-option>
+          <mat-chip-option *ngFor="let filter of partappliedFilters" (click)="addPartFilter(filter)" selected="true"> {{filter}}
             <mat-icon style="font-size:16px;height:16px;width:16px;">cancel</mat-icon>
-          </mat-chip>
-        </mat-chip-list>
+          </mat-chip-option>
+        </mat-chip-listbox>
       </div>
     </div>
     <div fxFlex></div>

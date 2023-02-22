@@ -39,7 +39,7 @@
   .noPrint {
     display: none !important;
   }
-  .mat-card {
+  .mat-mdc-card {
     page-break-inside: avoid !important;
   }
   .print-no-split {

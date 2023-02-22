@@ -3,7 +3,7 @@
   <sort-filter-bar [breakages]="breakages" [original]="original"></sort-filter-bar>
   <mat-progress-bar mode="indeterminate" *ngIf="breakages.length <= 0"></mat-progress-bar>
   <breakage-card [breakages]="breakages"></breakage-card>
-  <mat-card *ngIf="breakages.length <= 0">
+  <mat-card appearance="outlined" *ngIf="breakages.length <= 0">
     <mat-card-title>
       Searching for repaired items
     </mat-card-title>

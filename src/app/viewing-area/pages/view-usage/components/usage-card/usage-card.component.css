@@ -33,7 +33,7 @@
   margin-bottom: 0.25em !important;
 }
 
-.compactList .mat-list-item {
+.compactList .mat-mdc-list-item {
   height: auto !important;
   padding-bottom: 0.25em;
 }

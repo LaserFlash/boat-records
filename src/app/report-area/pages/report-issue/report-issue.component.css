@@ -2,7 +2,7 @@
   width: 100%;
 }
 
-/deep/ .mat-option:hover {
+/deep/ .mat-mdc-option:hover {
   color: #29b6f6;
 }
 

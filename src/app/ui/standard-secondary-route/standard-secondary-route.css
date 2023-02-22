@@ -7,18 +7,19 @@ mat-toolbar.mat-toolbar {
     position:relative
 }
 
-/deep/ .mat-tab-header {
+/deep/ .mat-mdc-tab-header {
     color: white !important;
     border-radius: 5px 5px 0px 0px;
 }
 
-/deep/ .mat-tab-link {
+/deep/ .mat-mdc-tab-link {
     font-size: 16px;
     line-height: 28px !important;
     height: auto !important;
     opacity: 1 !important;
     color: black !important;
 }
+/* TODO(mdc-migration): The following rule targets internal classes of tabs that may no longer apply for the MDC version. */
 /deep/ .mat-tab-label-active{
     color: white !important;
 }

@@ -12,7 +12,7 @@
     class="card_bottom_pad content"
   >
     <div fxFlex="60" fxLayout.lt-md="98">
-      <mat-card fxFlex>
+      <mat-card appearance="outlined" fxFlex>
         <mat-card-title>{{ title }}</mat-card-title>
         <mat-card-content>
           <form (ngSubmit)="onSubmit()" [formGroup]="usageForm" novalidate>
