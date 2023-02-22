@@ -27,7 +27,7 @@ export class UserManagementService {
       usersRaw = DB.list('/userProfile/')
         .snapshotChanges().pipe(map(items => {
           return items.map(a => {
-            const data = a.payload.val();
+            const data = a.payload.val() as User;
             const id = a.payload.key;
             return { id, ...data };
           });

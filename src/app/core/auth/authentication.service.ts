@@ -19,7 +19,7 @@ export class AuthenticationService {
       }
 
       if (data != null) {
-        this.afAuth.auth.currentUser.getIdTokenResult().then((idTokenResult) => {
+        this.afAuth.currentUser.then((user)=> user.getIdTokenResult().then((idTokenResult) => {
           this.authState.next(true); // Is now authenticated
 
           // Confirm the user is an Admin.
@@ -30,15 +30,15 @@ export class AuthenticationService {
 
           this.isAdmin.next(false); // If reached not an admin
 
-        }).catch(() => {
+        })).catch(() => {
           this.isAdmin.next(false);
-        });
+        })
       }
     });
   }
 
   /* Logout the current user */
   public logout() {
-    this.afAuth.auth.signOut();
+    this.afAuth.signOut()
   }
 }
