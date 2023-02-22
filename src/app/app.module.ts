@@ -1,62 +1,57 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { BrowserModule } from "@angular/platform-browser";
+import { NgModule } from "@angular/core";
+import { HttpClientModule } from "@angular/common/http";
 
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FlexLayoutModule } from '@angular/flex-layout';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { FlexLayoutModule } from "@angular/flex-layout";
 
-import { SignupComponent } from './core/auth/signup/signup.component';
+import { SignupComponent } from "./core/auth/signup/signup.component";
 
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatTabsModule } from '@angular/material/tabs';
-import { MatListModule } from '@angular/material/list';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
-import { MatCardModule } from '@angular/material/card';
-import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatSidenavModule } from "@angular/material/sidenav";
+import { MatTabsModule } from "@angular/material/tabs";
+import { MatListModule } from "@angular/material/list";
+import { MatToolbarModule } from "@angular/material/toolbar";
+import { MatButtonModule } from "@angular/material/button";
+import { MatIconModule } from "@angular/material/icon";
+import { MatCardModule } from "@angular/material/card";
+import { MatTooltipModule } from "@angular/material/tooltip";
 
-import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app-routing.module';
-import { OverlayContainer } from '@angular/cdk/overlay';
+import { AppComponent } from "./app.component";
+import { AppRoutingModule } from "./app-routing.module";
+import { OverlayContainer } from "@angular/cdk/overlay";
 
+import { SharedServicesModule } from "./core/shared-services.module";
 
-import { SharedServicesModule } from './core/shared-services.module';
+import { environment } from "../environments/environment";
 
-import { environment } from '../environments/environment';
+import { ServiceWorkerModule } from "@angular/service-worker";
 
-import { ServiceWorkerModule } from '@angular/service-worker';
+import { HAMMER_GESTURE_CONFIG } from "@angular/platform-browser";
+import { HammerConfig } from "./hammer.config";
+import "hammerjs";
 
-import { HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
-import { HammerConfig } from './hammer.config';
-import 'hammerjs';
+import { AngularFireModule } from "@angular/fire/compat";
+import { AngularFirestoreModule } from "@angular/fire/compat/firestore";
+import { AngularFireDatabaseModule } from "@angular/fire/compat/database";
+import { AngularFireAuthModule } from "@angular/fire/compat/auth";
 
-import { AngularFireModule } from '@angular/fire';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { AngularFireDatabaseModule } from '@angular/fire/database';
-import { AngularFireAuthModule } from '@angular/fire/auth';
-
-import { FirebaseUIModule, firebase, firebaseui } from 'firebaseui-angular';
-import { ThemeService } from 'ng2-charts';
-
+import { FirebaseUIModule, firebase, firebaseui } from "firebaseui-angular";
+import { ThemeService } from "ng2-charts";
 
 const firebaseUiAuthConfig: firebaseui.auth.Config = {
-  signInFlow: 'popup',
+  signInFlow: "popup",
   signInOptions: [
     firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-    firebase.auth.EmailAuthProvider.PROVIDER_ID
+    firebase.auth.EmailAuthProvider.PROVIDER_ID,
   ],
-  tosUrl: '',
-  privacyPolicyUrl: '',
-  credentialHelper: firebaseui.auth.CredentialHelper.ACCOUNT_CHOOSER_COM,
-  autoUpgradeAnonymousUsers: true
+  tosUrl: "",
+  privacyPolicyUrl: "",
+  credentialHelper: firebaseui.auth.CredentialHelper.GOOGLE_YOLO,
+  autoUpgradeAnonymousUsers: true,
 };
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    SignupComponent
-  ],
+  declarations: [AppComponent, SignupComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -68,7 +63,9 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     FirebaseUIModule.forRoot(firebaseUiAuthConfig),
-    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
+    ServiceWorkerModule.register("/ngsw-worker.js", {
+      enabled: environment.production,
+    }),
     MatSidenavModule,
     MatTabsModule,
     MatListModule,
@@ -77,16 +74,16 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
     MatCardModule,
     MatTooltipModule,
     MatToolbarModule,
-    SharedServicesModule.forRoot()
+    SharedServicesModule.forRoot(),
   ],
   providers: [
     ThemeService,
-    { provide: HAMMER_GESTURE_CONFIG, useClass: HammerConfig }
+    { provide: HAMMER_GESTURE_CONFIG, useClass: HammerConfig },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {
   constructor(overlayContainer: OverlayContainer) {
-    overlayContainer.getContainerElement().classList.add('my-app-theme');
+    overlayContainer.getContainerElement().classList.add("my-app-theme");
   }
 }

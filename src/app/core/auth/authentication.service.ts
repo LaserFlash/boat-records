@@ -1,12 +1,10 @@
 import { Injectable } from "@angular/core";
-import { AngularFireDatabase } from "@angular/fire/database";
-import { AngularFireAuth } from "@angular/fire/auth";
-import { auth } from "firebase";
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { AngularFireDatabase } from "@angular/fire/compat/database";
+import { AngularFireAuth } from "@angular/fire/compat/auth";
+import { BehaviorSubject } from "rxjs/BehaviorSubject";
 
 @Injectable()
 export class AuthenticationService {
-
   public authState: BehaviorSubject<boolean> = new BehaviorSubject(false);
   public isAdmin: BehaviorSubject<boolean> = new BehaviorSubject(false);
 
@@ -19,26 +17,29 @@ export class AuthenticationService {
       }
 
       if (data != null) {
-        this.afAuth.currentUser.then((user)=> user.getIdTokenResult().then((idTokenResult) => {
-          this.authState.next(true); // Is now authenticated
+        this.afAuth.currentUser
+          .then((user) =>
+            user.getIdTokenResult().then((idTokenResult) => {
+              this.authState.next(true); // Is now authenticated
 
-          // Confirm the user is an Admin.
-          if (!!idTokenResult.claims.admin) {
-            this.isAdmin.next(true);
-            return;
-          }
+              // Confirm the user is an Admin.
+              if (!!idTokenResult.claims.admin) {
+                this.isAdmin.next(true);
+                return;
+              }
 
-          this.isAdmin.next(false); // If reached not an admin
-
-        })).catch(() => {
-          this.isAdmin.next(false);
-        })
+              this.isAdmin.next(false); // If reached not an admin
+            })
+          )
+          .catch(() => {
+            this.isAdmin.next(false);
+          });
       }
     });
   }
 
   /* Logout the current user */
   public logout() {
-    this.afAuth.signOut()
+    this.afAuth.signOut();
   }
 }
