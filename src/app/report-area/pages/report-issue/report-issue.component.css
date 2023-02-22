@@ -6,11 +6,11 @@
   color: #29b6f6;
 }
 
-/deep/ .mat-vertical-stepper-header{
+/deep/ .mat-stepper-header {
   padding-left: 0px !important;
   padding-right: 0px !important;
 }
 
-/deep/ .mat-vertical-content-container{
+/deep/ .mat-content-container {
   margin-left: 12px !important;
 }

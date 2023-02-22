@@ -1,11 +1,11 @@
-import { Validators, FormControl } from '@angular/forms';
+import { Validators, UntypedFormControl } from '@angular/forms';
 interface ValidationResult {
  [key: string]: boolean;
 }
 
 export class ContactValidator {
 
- static emailAndMobile(c: FormControl): ValidationResult {
+ static emailAndMobile(c: UntypedFormControl): ValidationResult {
    const emailRegex =  /.+@.+\..+/i;
    const mobileRegex = /^[0-9]{9,12}$/;
    const v = c.value;

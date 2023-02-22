@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { DateAdapter } from '@angular/material/core';
-import { FormBuilder, FormGroup, FormArray, Validators, FormControl, AbstractControl } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, UntypedFormArray, Validators, UntypedFormControl, AbstractControl } from '@angular/forms';
 
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatStepper } from '@angular/material/stepper';
@@ -33,7 +33,7 @@ export class ReportUsageComponent {
   windDirection = WindDirection;
   waterState = WaterState;
 
-  public usageForm: FormGroup;
+  public usageForm: UntypedFormGroup;
 
   formErrors = {
     'boatID': '',
@@ -76,7 +76,7 @@ export class ReportUsageComponent {
   constructor(
     private dateAdapter: DateAdapter<Date>,
     private usageService: BoatUsageService,
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     public snackBar: MatSnackBar,
     private BOATS: KnownBoatsService
     ) {
@@ -100,7 +100,7 @@ export class ReportUsageComponent {
         this.fb.group({
           startTime: ['', Validators.required],
           endTime: ['', Validators.required],
-          date: new FormControl({ value: this.maxDate }, Validators.required)
+          date: new UntypedFormControl({ value: this.maxDate }, Validators.required)
         }, { validator: this.checkDateRange.bind(this) }),
         this.fb.group({
           driver: ['', Validators.required],
@@ -128,24 +128,24 @@ export class ReportUsageComponent {
     return c.get('startTime').value < c.get('endTime').value ? null : { notInRange: true };
   }
 
-  private createArrayCrew(): FormGroup {
+  private createArrayCrew(): UntypedFormGroup {
     return this.fb.group({
       name: ['', null]
     });
   }
 
   private addArrayCrew(): void {
-    const crew = this.usageForm.get('formArray').get([2]).get('notableCrew') as FormArray;
+    const crew = this.usageForm.get('formArray').get([2]).get('notableCrew') as UntypedFormArray;
     crew.push(this.createArrayCrew());
   }
 
   private removeCrew(i: number): void {
     if (i === undefined) { return; }
-    const crew = this.usageForm.get('formArray').get([2]).get('notableCrew') as FormArray;
+    const crew = this.usageForm.get('formArray').get([2]).get('notableCrew') as UntypedFormArray;
     crew.removeAt(i);
   }
 
-  get formCrewArray() { return <FormArray>this.usageForm.get('formArray').get([2]).get('notableCrew'); }
+  get formCrewArray() { return <UntypedFormArray>this.usageForm.get('formArray').get([2]).get('notableCrew'); }
 
   /** Update error messages due to validation */
   private onValueChanged(data?: any) {
