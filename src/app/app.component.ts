@@ -18,6 +18,7 @@ import { environment } from '../environments/environment';
 export class AppComponent implements OnInit {
   title = 'QCYC';
   build: string;
+  currentDate = new Date();
   isDarkTheme: boolean;
   public themeBackground = "#eceff1";
   isAdmin: boolean;
