@@ -1,17 +1,8 @@
-
-export const Boats: number[] = [
-  0, 1, 2, 3, 4, 5, 6, 7, 8, 9
-];
-
-export const UserFriendlyBoats: string[] = [
-  'PT1', 'PT2', 'PT3', 'PT4', 'PT5', 'PT6', 'PT7', 'Lois Dawn', 'Ngamotu'
-];
-
 export const Levels: string[] = [
   'Urgent (out of action)',
   'High (usable if needed)',
   'Medium (boat usable)',
-  'Low (not affecting use)'
+  'Low (not affecting use)',
 ];
 
 export const Parts: string[] = [
@@ -23,7 +14,7 @@ export const Parts: string[] = [
   'Prop',
   'Radio',
   'Safety Equipment',
-  'Other'
+  'Other',
 ];
 
 export const WindTypes: string[] = [
@@ -35,16 +26,7 @@ export const WindTypes: string[] = [
   'Strong Gale (40+ knots)',
 ];
 
-export const WindDirection: string[] = [
-  'North',
-  'East',
-  'South',
-  'West',
-  'NE',
-  'NW',
-  'SE',
-  'SW'
-];
+export const WindDirection: string[] = ['North', 'East', 'South', 'West', 'NE', 'NW', 'SE', 'SW'];
 
 export const WaterState: string[] = [
   'Calm (Glassy)',
@@ -53,5 +35,5 @@ export const WaterState: string[] = [
   'Slight (0.5-1m)',
   'Moderate (1-2m)',
   'Rough (2-4m)',
-  'Very Rough (4-6m)'
+  'Very Rough (4-6m)',
 ];
