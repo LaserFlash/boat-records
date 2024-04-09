@@ -6,10 +6,8 @@ import { DocumentAreaComponent } from './document-area.component';
 
 /* Import the sub-pages */
 import { SafetyDocsComponent } from './pages/safety-docs/safety-docs.component';
-import { BoatPartsComponent } from './pages/boat-parts/boat-parts.component';
 
 /* Import Services/Providers */
-import { BoatPartsService } from './shared/boat-parts/boat-parts.service';
 import { SafetyDocsService } from './shared/safety-docs/safety-docs.service';
 import { AuthenticationService } from '../core/auth/authentication.service';
 
@@ -33,12 +31,7 @@ import { FormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
-  declarations: [
-    DocumentAreaComponent,
-    SafetyDocsComponent,
-    BoatPartsComponent,
-    InlineEditInputComponent
-  ],
+  declarations: [DocumentAreaComponent, SafetyDocsComponent, InlineEditInputComponent],
   imports: [
     CommonModule,
     DocumentAreaRoutingModule,
@@ -52,13 +45,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatSnackBarModule,
     MatFormFieldModule,
     MatButtonModule,
-    MatInputModule
+    MatInputModule,
   ],
-  providers: [
-    AuthenticationService,
-    SafetyDocsService,
-    BoatPartsService,
-    MatSnackBar
-  ]
+  providers: [AuthenticationService, SafetyDocsService, MatSnackBar],
 })
-export class DocumentAreaModule { }
+export class DocumentAreaModule {}

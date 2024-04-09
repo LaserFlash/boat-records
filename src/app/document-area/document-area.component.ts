@@ -6,21 +6,16 @@ import { routerTransition } from '../ui/animations/router.animations';
 
 @Component({
   selector: 'app-docs',
-  animations: [ routerTransition ],
+  animations: [routerTransition],
   templateUrl: '../ui/standard-secondary-route/standard-secondary-route.html',
-  styleUrls: ['../ui/standard-secondary-route/standard-secondary-route.css']
+  styleUrls: ['../ui/standard-secondary-route/standard-secondary-route.css'],
 })
-
 export class DocumentAreaComponent implements OnInit {
-  routeLinks = [
-    {label: 'Health & Safety' , link: 'safety'},
-    {label: 'Parts' , link: 'parts'},
-  ];
-
+  routeLinks = [{ label: 'Health & Safety', link: 'safety' }];
   SWIPE_ACTION = { LEFT: 'swipeleft', RIGHT: 'swiperight' };
 
   router: Router;
-  constructor(private _router: Router ) {
+  constructor(private _router: Router) {
     this.router = _router;
   }
 
@@ -31,10 +26,16 @@ export class DocumentAreaComponent implements OnInit {
     const tokens = str.split('/').slice(1);
     const url = tokens[1];
 
-    const pos: any = this.routeLinks.filter((item) => {if (item.link === url) {return item; } });
+    const pos: any = this.routeLinks.filter((item) => {
+      if (item.link === url) {
+        return item;
+      }
+    });
     const currentIndex: number = this.routeLinks.indexOf(pos[0]);
 
-    if (currentIndex > this.routeLinks.length || currentIndex < 0) { return; }
+    if (currentIndex > this.routeLinks.length || currentIndex < 0) {
+      return;
+    }
     let nextIndex = 0;
     // next
     if (action === this.SWIPE_ACTION.RIGHT) {
@@ -53,5 +54,4 @@ export class DocumentAreaComponent implements OnInit {
   getState(outlet) {
     return outlet.activatedRouteData.state;
   }
-
 }
