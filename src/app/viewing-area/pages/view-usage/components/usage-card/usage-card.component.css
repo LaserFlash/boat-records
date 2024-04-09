@@ -21,6 +21,10 @@
   min-width: calc(20ch + 70px);
 }
 
+.mat-expansion-panel-header-title {
+  flex-grow: 0 !important;
+}
+
 .headerMinHeight {
   min-height: 4em !important;
 }
