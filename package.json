@@ -2,7 +2,7 @@
   "name": "QCYC-UsageMaintenaceTracker",
   "version": "0.0.1",
   "engines": {
-    "node": "16.x"
+    "node": "20"
   },
   "scripts": {
     "ng": "ng",
