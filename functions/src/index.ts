@@ -1,29 +1,26 @@
-import * as functions from "firebase-functions";
-import * as admin from "firebase-admin";
+
+import admin from "firebase-admin";
+import { beforeUserCreated } from "firebase-functions/v2/identity";
+import { onValueWritten } from "firebase-functions/v2/database";
+import * as logger from "firebase-functions/logger";
+
 admin.initializeApp();
-const FieldValue = require('firebase-admin').firestore.FieldValue;
 
-exports.createProfile = functions.auth.user()
-  .onCreate((userRecord, context) => {
-    admin.auth().getUser(userRecord.uid)
-      .then(function(userData) {
-        console.log("Successfully fetched user data:", userData.toJSON());
-        return admin.database().ref(`/userProfile/${userData.uid}`).set({
-          email: userData.email,
-          name: userData.displayName,
-          role: "user"
-        });
-      })
-      .catch(function(error) {
-        console.log("Error fetching user data:", error);
-      });
-  });
+export const createProfile = beforeUserCreated((event) => {
+    const user = event.data;
 
-exports.updateUserClaims = functions.database.ref('/userProfile/{uid}/role').onWrite((snapshot, context) => {
-  const role = snapshot.after.val();
-  console.log("Updating custom claims: ", role);
-  if (role === 'admin') {
-    return admin.auth().setCustomUserClaims(context.params.uid, { admin: true });
-  }
-  return admin.auth().setCustomUserClaims(context.params.uid, { admin: false })
+    logger.log("Creating User Profile: ", user)
+
+    return admin.database().ref(`/userProfile/${user.uid}`).set({ email: user.email, name: user.displayName, role: "user" });
+});
+
+export const updateUserClaims = onValueWritten("/userProfile/{uid}/role", (event) => {
+    const role = event.data.after.val();
+    const uid = event.params.uid
+
+    logger.log("Updating custom claims: ", { uid, role })
+
+    if (role === "admin") return admin.auth().setCustomUserClaims(uid, { admin: true });
+    return admin.auth().setCustomUserClaims(uid, { admin: false });
+
 });
