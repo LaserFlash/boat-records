@@ -1,19 +1,14 @@
 {
-  "indexes": [
-    {
-      "collectionGroup": "boatUsage",
-      "queryScope": "COLLECTION",
-      "fields": [
-        {
-          "fieldPath": "date",
-          "order": "DESCENDING"
-        },
-        {
-          "fieldPath": "boatID",
-          "order": "ASCENDING"
-        }
-      ]
-    }
-  ],
-  "fieldOverrides": []
+  "indexes": [{
+    "collectionId": "boatUsage",
+    "fields": [{
+        "fieldPath": "endTime",
+        "mode": "DESCENDING"
+      },
+      {
+        "fieldPath": "boatID",
+        "mode": "ASCENDING"
+      }
+    ]
+  }]
 }
