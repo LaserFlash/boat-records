@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { AngularFireDatabase } from '@angular/fire/database';
+import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { map } from 'rxjs/operators';
 
 import { User } from '../../../core/objects/user';
@@ -27,7 +27,7 @@ export class UserManagementService {
       usersRaw = DB.list('/userProfile/')
         .snapshotChanges().pipe(map(items => {
           return items.map(a => {
-            const data = a.payload.val();
+            const data = a.payload.toJSON();
             const id = a.payload.key;
             return { id, ...data };
           });

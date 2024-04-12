@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { DocLink, DocLinkID } from '../../../core/objects/docLink';
 
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 

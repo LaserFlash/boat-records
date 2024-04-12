@@ -34,7 +34,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatPaginatorModule } from '@angular/material/paginator';
 
-import { ChartsModule } from 'ng2-charts';
+import { NgChartsModule } from 'ng2-charts';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
@@ -65,7 +65,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatButtonModule,
     MatExpansionModule,
     MatPaginatorModule,
-    ChartsModule,
+    NgChartsModule,
   ],
   providers: [
     BoatBreakageService,

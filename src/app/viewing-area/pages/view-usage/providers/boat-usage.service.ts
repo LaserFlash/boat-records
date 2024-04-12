@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { AngularFirestore } from "@angular/fire/firestore";
+import { AngularFirestore } from "@angular/fire/compat/firestore";
 import { UsageInfo, UsageInfoID } from "../../../../core/objects/usageInfo";
 import { BehaviorSubject } from "rxjs";
 import { map } from "rxjs/operators";

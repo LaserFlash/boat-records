@@ -21,10 +21,6 @@ import { ImageModalComponent } from './image-modal.component';
     ],
     providers: [
         DialogsService,
-    ],
-    entryComponents: [
-        ConfirmDialogComponent,
-        ImageModalComponent,
-    ],
+    ]
 })
 export class DialogsModule { }
