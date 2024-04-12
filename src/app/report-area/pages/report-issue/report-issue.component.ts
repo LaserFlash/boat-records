@@ -83,11 +83,11 @@ export class ReportIssueComponent implements OnInit {
     private breakageService: BoatBreakageService,
     private BOATS: KnownBoatsService,
     private cloudinary: Cloudinary,
-  ) {}
+  ) { }
 
 
   ngOnInit() {
-    this.BOATS.boatInformation.subscribe( boats => {
+    this.BOATS.boatInformation.subscribe(boats => {
       this.boats = boats.filter(boat => {
         return boat.selectable;
       });
@@ -127,11 +127,11 @@ export class ReportIssueComponent implements OnInit {
       return { fileItem, form };
     };
     this.uploader.onCompleteItem = (item: any, response: string, status: number, headers: ParsedResponseHeaders) => {
-       this.imageLoaded = true;
-       const j = JSON.parse(response);
-       this.imageID = j['public_id'];
-       this.breakage[0].imageID = this.imageID;
-      };
+      this.imageLoaded = true;
+      const j = JSON.parse(response);
+      this.imageID = j['public_id'];
+      this.breakage[0].imageID = this.imageID;
+    };
     this.uploader.onProgressItem = (fileItem: any, progress: any) => { this.imageLoaded = false; };
   }
 
@@ -190,7 +190,7 @@ export class ReportIssueComponent implements OnInit {
 
       if (control && control.dirty && !control.valid) {
         const messages = this.validationMessages[field];
-        // tslint:disable-next-line:forin
+
         for (const key in control.errors) {
           this.formErrors[field] += messages[key] + ' ';
         }
