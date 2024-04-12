@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
-import { Observable } from 'rxjs/Observable';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { Observable } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { map, tap, scan, mergeMap, throttleTime } from 'rxjs/operators';
 
 import { UsageInfo } from '../../../core/objects/usageInfo';
@@ -12,7 +12,7 @@ import { KnownBoatsService } from '../../../core/constants/known-boats/known-boa
 export class BoatUsageService {
 
   public infiniteUsages: Observable<any[]>;
-  private offset = new BehaviorSubject( new Date());
+  private offset = new BehaviorSubject(new Date());
 
   batch_size = 10;
   theEnd = false;

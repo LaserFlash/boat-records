@@ -1,4 +1,4 @@
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { ConfirmDialogComponent } from './confirm-dialog.component';
 import { ImageModalComponent } from './image-modal.component';
 import { MatDialogRef, MatDialog, MatDialogConfig } from '@angular/material/dialog';
