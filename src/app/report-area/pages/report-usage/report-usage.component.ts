@@ -79,15 +79,15 @@ export class ReportUsageComponent {
     private fb: FormBuilder,
     public snackBar: MatSnackBar,
     private BOATS: KnownBoatsService
-    ) {
-      this.dateAdapter.setLocale('en-nz');
-      this.createForm();
-      BOATS.boatInformation.subscribe((boats) => {
-        this.boats = boats.filter((boat) => {
-          return boat.selectable;
-        });
+  ) {
+    this.dateAdapter.setLocale('en-nz');
+    this.createForm();
+    BOATS.boatInformation.subscribe((boats) => {
+      this.boats = boats.filter((boat) => {
+        return boat.selectable;
       });
-    }
+    });
+  }
 
   /** Build the form */
   private createForm() {
@@ -152,7 +152,6 @@ export class ReportUsageComponent {
     if (!this.usageForm) { return; }
     const form = this.usageForm;
 
-    // tslint:disable-next-line:forin
     for (const field in this.formErrors) {
       // clear previous error message (if any)
       this.formErrors[field] = '';
@@ -160,7 +159,7 @@ export class ReportUsageComponent {
 
       if (control && control.dirty && !control.valid) {
         const messages = this.validationMessages[field];
-        // tslint:disable-next-line:forin
+
         for (const key in control.errors) {
           this.formErrors[field] += messages[key] + ' ';
         }

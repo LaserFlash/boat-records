@@ -1,6 +1,5 @@
 {
   "projects": {
-    "default": "qcyc-usagemaintenancetracker",
-    "dev": "qcyc-dev"
+    "default": "qcyc-usagemaintenancetracker"
   }
 }
