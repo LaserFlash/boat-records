@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable()
 /**
@@ -15,7 +15,7 @@ export class ThemeTrackerService {
   constructor(private cookieService: CookieService) {
     /* Load state from Cookie*/
     this.isDark.next(this.cookieService.get('npyc') === '1');
-   }
+  }
 
   /* Update the theme state and store in cookie */
   public setDark(b: boolean) {

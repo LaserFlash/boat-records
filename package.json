@@ -39,7 +39,6 @@
     "ng2-file-upload": "^1.4.0",
     "ngx-cookie-service": "^2.2.0",
     "rxjs": "^6.6.7",
-    "rxjs-compat": "^6.6.7",
     "web-animations-js": "^2.3.2",
     "zone.js": "~0.9.1"
   },

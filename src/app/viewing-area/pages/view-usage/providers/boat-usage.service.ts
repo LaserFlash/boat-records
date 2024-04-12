@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { AngularFirestore } from "@angular/fire/firestore";
 import { UsageInfo, UsageInfoID } from "../../../../core/objects/usageInfo";
-import { BehaviorSubject } from "rxjs/BehaviorSubject";
+import { BehaviorSubject } from "rxjs";
 import { map } from "rxjs/operators";
 
 @Injectable()
@@ -47,7 +47,7 @@ export class BoatUsageService {
       this.currentSelectedUsages.next(val);
     });
   }
- 
+
 
   /* Get a the next set of usage data from DB */
   getBatch() {
