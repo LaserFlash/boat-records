@@ -1,4 +1,4 @@
-/deep/ body {
+::ng-deep body {
   margin: 0 0 0 0 !important;
 }
 
@@ -24,7 +24,7 @@ mat-sidenav-container {
   background: var(--bg-colour);
 }
 
-/deep/ html {
+::ng-deep html {
   background: var(--bg-colour);
 }
 
@@ -56,12 +56,12 @@ mat-sidenav-container {
   height: 150px;
 }
 
-/deep/ .mat-tab-header {
+::ng-deep .mat-tab-header {
   color: white !important;
   border-radius: 5px 5px 0px 0px;
 }
 
-/deep/ .mat-tab-link {
+::ng-deep .mat-tab-link {
   font-size: 16px;
   line-height: 28px !important;
   height: auto !important;
@@ -69,7 +69,7 @@ mat-sidenav-container {
   color: black !important;
 }
 
-/deep/ .mat-ink-bar {
+::ng-deep .mat-ink-bar {
   min-width: 120px;
 }
 
@@ -80,7 +80,7 @@ mat-sidenav-container {
   z-index: 10;
 }
 
-/deep/ .bottom-navigation .mat-tab-link {
+::ng-deep .bottom-navigation .mat-tab-link {
   padding-top: 4px !important;
   padding-bottom: 2px !important;
   padding-left: 4px !important;
@@ -88,19 +88,19 @@ mat-sidenav-container {
   color: black !important;
 }
 
-/deep/ .bottom-navigation .mat-tab-label-active {
+::ng-deep .bottom-navigation .mat-tab-label-active {
   color: white !important;
 }
 
-/deep/ .bottom-navigation .mat-ink-bar {
+::ng-deep .bottom-navigation .mat-ink-bar {
   visibility: hidden !important;
 }
 
-/deep/ .app-dark .mat-drawer-backdrop.mat-drawer-shown {
+::ng-deep .app-dark .mat-drawer-backdrop.mat-drawer-shown {
   background: none;
 }
 
-/deep/ .mat-drawer-backdrop.mat-drawer-shown {}
+::ng-deep .mat-drawer-backdrop.mat-drawer-shown {}
 
 .nav-button {
   width: 100%;

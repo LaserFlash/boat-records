@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BreakageInfo } from '../../../core/objects/breakageInfo';
 
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
 
 

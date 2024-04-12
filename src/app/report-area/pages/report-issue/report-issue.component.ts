@@ -1,5 +1,5 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators, FormControl } from '@angular/forms';
 
 import { ContactValidator } from '../../shared/validators/CustomValidators';
 import { BreakageInfo } from '../../../core/objects/breakageInfo';
@@ -34,7 +34,7 @@ export class ReportIssueComponent implements OnInit {
   levels = Levels;
   parts = Parts;
 
-  breakageForm: FormGroup;
+  breakageForm: UntypedFormGroup;
   breakage: BreakageInfo[] = [];
 
   title = 'Report Boat Breakage';
@@ -78,7 +78,7 @@ export class ReportIssueComponent implements OnInit {
   };
 
   constructor(
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private snackBar: MatSnackBar,
     private breakageService: BoatBreakageService,
     private BOATS: KnownBoatsService,

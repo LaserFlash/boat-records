@@ -41,11 +41,11 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatIconModule } from '@angular/material/icon';
 
-import { ChartsModule } from 'ng2-charts';
+import { NgChartsModule } from 'ng2-charts';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { FileUploadModule } from 'ng2-file-upload';
-import { CloudinaryModule, CloudinaryConfiguration } from '@cloudinary/angular-5.x';
+import { CloudinaryModule } from '@cloudinary/angular-5.x';
 import { Cloudinary } from 'cloudinary-core';
 
 @NgModule({
@@ -79,7 +79,7 @@ import { Cloudinary } from 'cloudinary-core';
     MatSelectModule,
     MatProgressSpinnerModule,
     MatIconModule,
-    ChartsModule,
+    NgChartsModule,
     ReactiveFormsModule,
     FormsModule,
     FileUploadModule,

@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, HammerModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -31,13 +31,13 @@ import { HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { HammerConfig } from './hammer.config';
 import 'hammerjs';
 
-import { AngularFireModule } from '@angular/fire';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { AngularFireDatabaseModule } from '@angular/fire/database';
-import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 
 import { FirebaseUIModule, firebase, firebaseui } from 'firebaseui-angular';
-import { ThemeService } from 'ng2-charts';
+import { NgChartsModule } from 'ng2-charts';
 
 
 const firebaseUiAuthConfig: firebaseui.auth.Config = {
@@ -48,7 +48,7 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
   ],
   tosUrl: '',
   privacyPolicyUrl: '',
-  credentialHelper: firebaseui.auth.CredentialHelper.ACCOUNT_CHOOSER_COM,
+  credentialHelper: firebaseui.auth.CredentialHelper.NONE,
   autoUpgradeAnonymousUsers: true
 };
 
@@ -60,6 +60,7 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    HammerModule,
     HttpClientModule,
     AppRoutingModule,
     FlexLayoutModule,
@@ -77,10 +78,9 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
     MatCardModule,
     MatTooltipModule,
     MatToolbarModule,
-    SharedServicesModule.forRoot()
+    SharedServicesModule.forRoot(), NgChartsModule
   ],
   providers: [
-    ThemeService,
     { provide: HAMMER_GESTURE_CONFIG, useClass: HammerConfig }
   ],
   bootstrap: [AppComponent]

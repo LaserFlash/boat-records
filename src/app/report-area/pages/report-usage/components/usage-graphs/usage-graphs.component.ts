@@ -1,9 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-
-
 import { BoatUsageService } from '../../../../shared/providers/boat-usage.service';
 import { KnownBoatsService } from '../../../../../core/constants/known-boats/known-boats.service';
-import { UsageInfo } from '../../../../../core/objects/usageInfo';
 
 @Component({
   selector: 'usage-graphs',
@@ -14,17 +11,13 @@ export class UsageGraphsComponent implements OnInit {
   @Input() dataLabel: string;
   @Input() chartTitle: string;
 
-  chartData: any[] = [{ data: [0, 0, 0, 0, 0, 0, 0, 0], label: 'Hours Used' }];
-  colors: Array<any> = [{
+  chartData = [{
+    data: [0, 0, 0, 0, 0, 0, 0, 0], label: 'Hours Used',
     backgroundColor: 'rgba(66,165,245,1)',
-    borderColor: 'rgba(225,10,241)',
-    pointBackgroundColor: 'rgba(66,165,245,1)',
-    pointBorderColor: '#fff',
-    pointHoverBackgroundColor: '#fff',
-    pointHoverBorderColor: 'rgba(66,165,245,1)'
+    borderColor: 'rgba(225,255,255,1)',
   }];
 
-  chartOptions: any = {
+  chartOptions = {
     scaleShowVerticalLines: false,
     responsive: true,
     maintainAspectRatio: true,
@@ -33,7 +26,6 @@ export class UsageGraphsComponent implements OnInit {
   // Only use boat data for boats with a userfriendly name
   chartLabels: string[];
 
-  public chartType = 'bar';
   public chartLegend = true;
 
   usageLastMonth: { boat: string, duration: number }[];

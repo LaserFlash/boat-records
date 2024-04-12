@@ -10,7 +10,7 @@ import { CookieService } from 'ngx-cookie-service';
   imports: []
 })
 export class SharedServicesModule {
-  static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders<SharedServicesModule> {
     return {
       ngModule: SharedServicesModule,
       providers: [AuthenticationService, ThemeTrackerService, KnownBoatsService, CookieService]

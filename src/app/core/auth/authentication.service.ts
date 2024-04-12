@@ -1,7 +1,6 @@
 import { Injectable } from "@angular/core";
-import { AngularFireDatabase } from "@angular/fire/database";
-import { AngularFireAuth } from "@angular/fire/auth";
-import { auth } from "firebase";
+import { AngularFireDatabase } from "@angular/fire/compat/database";
+import { AngularFireAuth } from "@angular/fire/compat/auth";
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable()
@@ -11,7 +10,7 @@ export class AuthenticationService {
   public isAdmin: BehaviorSubject<boolean> = new BehaviorSubject(false);
 
   constructor(private afAuth: AngularFireAuth, db: AngularFireDatabase) {
-    this.afAuth.authState.subscribe((data) => {
+    this.afAuth.authState.subscribe(async (data) => {
       console.log(data);
       if (!data) {
         this.isAdmin.next(false);
@@ -19,7 +18,7 @@ export class AuthenticationService {
       }
 
       if (data != null) {
-        this.afAuth.auth.currentUser.getIdTokenResult().then((idTokenResult) => {
+        (await this.afAuth.currentUser).getIdTokenResult().then((idTokenResult) => {
           this.authState.next(true); // Is now authenticated
 
           // Confirm the user is an Admin.
@@ -39,6 +38,6 @@ export class AuthenticationService {
 
   /* Logout the current user */
   public logout() {
-    this.afAuth.auth.signOut();
+    this.afAuth.signOut();
   }
 }
