@@ -4,6 +4,7 @@ import { WindSpeedConversionHelper, WindDirectionConversionHelper, WaterStateCon
 import { KnownBoatsService } from '../../../../../core/constants/known-boats/known-boats.service';
 import { BoatUsageService } from '../../providers/boat-usage.service';
 import { AuthenticationService } from '../../../../../core/auth/authentication.service';
+import { ModalService } from '../../../../../ui/modal/modal.service';
 
 @Component({
   selector: 'usage-card',
@@ -15,14 +16,10 @@ export class UsageCardComponent implements OnInit {
   @Input() usage: UsageInfoID;
   canDelete = false;
 
-  constructor(private AUTH: AuthenticationService, private usageService: BoatUsageService, private BOATS: KnownBoatsService) { }
+  constructor(private AUTH: AuthenticationService, private usageService: BoatUsageService, private dialogsService: ModalService, private BOATS: KnownBoatsService) { }
 
   ngOnInit() {
     this.AUTH.isAdmin.subscribe(isAdmin => this.canDelete = isAdmin);
-  }
-
-  deleteUsageRecord() {
-    this.usageService.deleteUsage(this.usage)
   }
 
   getBoatName(v) {
@@ -43,5 +40,18 @@ export class UsageCardComponent implements OnInit {
 
   shortDuration(duration) {
     return Number.parseFloat(duration).toPrecision(2).toString();
+  }
+
+
+  deleteUsageRecord() {
+    this.usageService.deleteUsage(this.usage)
+  }
+
+  openRemovalModal() {
+    this.dialogsService
+      .confirm('Rmove this usage entry', 'Are you sure you want to do this? It cannot be undone', 'Remove')
+      .subscribe(confirmed => {
+        if (confirmed) this.deleteUsageRecord();
+      });
   }
 }
