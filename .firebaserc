@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "qcyc-usagemaintenancetracker"
-  }
+    "default": "qcyc-usagemaintenancetracker",
+    "dev": "boat-records-dev-8caed"
+  },
+  "targets": {},
+  "etags": {}
 }
