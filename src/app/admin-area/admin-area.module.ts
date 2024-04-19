@@ -6,6 +6,7 @@ import { AdminComponent } from './admin.component';
 
 import { ModifyBoatsComponent } from './components/modify-boats/modify-boats.component';
 import { ElevateUserComponent } from './components/elevate-user/elevate-user.component';
+import { RunMigrationsComponent } from './components/run-migrations/run-migrations.component';
 import { InlineEditInputBoatsComponent } from './components/modify-boats/inline-edit-input-boats/inline-edit-input-boats.component';
 
 /* Import Material2 Things */
@@ -26,6 +27,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     AdminComponent,
     ModifyBoatsComponent,
     ElevateUserComponent,
+    RunMigrationsComponent,
     InlineEditInputBoatsComponent
   ],
   imports: [

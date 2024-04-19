@@ -1,0 +1,25 @@
+<mat-accordion *ngIf="canRunMigrations">
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title> Migrations </mat-panel-title>
+      <mat-panel-description> Run data migrations </mat-panel-description>
+    </mat-expansion-panel-header>
+    <mat-selection-list>
+      <h3 mat-subheader>Possible Migrations</h3>
+      <div *ngFor="let migration of migrations">
+        <mat-list-item>    
+          <mat-icon mat-list-icon *ngIf="migration.lastRun">check_box</mat-icon>
+          <mat-icon mat-list-icon *ngIf="!migration.lastRun">check_box_outline_blank</mat-icon>
+
+          <span  mat-line>{{migration.name}}</span>      
+          <span  mat-line> {{migration.lastRun | date:'medium'}}</span>  
+         
+          <button mat-stroked-button (click)="runMigration(migration)">
+            Run
+          </button>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+      </div>
+    </mat-selection-list>
+  </mat-expansion-panel>
+</mat-accordion>
