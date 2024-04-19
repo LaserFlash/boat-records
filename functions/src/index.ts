@@ -20,7 +20,8 @@ export const updateUserClaims = onValueWritten("/userProfile/{uid}/role", (event
 
     logger.log("Updating custom claims: ", { uid, role })
 
-    if (role === "admin") return admin.auth().setCustomUserClaims(uid, { admin: true });
-    return admin.auth().setCustomUserClaims(uid, { admin: false });
+    if (role === "admin") return admin.auth().setCustomUserClaims(uid, { admin: true, systemAdmin: false });
+    if (role === "system-admin") return admin.auth().setCustomUserClaims(uid, { admin: true, systemAdmin: true });
+    return admin.auth().setCustomUserClaims(uid, { admin: false, systemAdmin: false });
 
 });

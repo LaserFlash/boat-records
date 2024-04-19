@@ -13,9 +13,11 @@
       <mat-list-item *ngFor="let user of users; let i = index">
         <h4 mat-line>{{user.name}}</h4>
         <p mat-line> {{user.email}} </p>
-        <mat-checkbox matTooltip="Mark user as Admin" [(ngModel)]="usersRole[i]">Admin</mat-checkbox>
+        <mat-checkbox matTooltip="Mark user as Admin" [(ngModel)]="usersRole[i]" [disabled]="user.role === 'system-admin'">Admin</mat-checkbox>
         <button mat-stroked-button (click)="save(i)"> Save </button>
       </mat-list-item>
     </mat-list>
   </mat-expansion-panel>
 </mat-accordion>
+
+<div class="bottomSpace"></div>

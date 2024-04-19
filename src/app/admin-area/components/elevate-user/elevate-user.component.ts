@@ -11,16 +11,13 @@ export class ElevateUserComponent implements OnInit {
   users: User[];
   usersRole: boolean[];
 
-  constructor(private USERS: UserManagementService) {
-    USERS.users.subscribe(usersDB => {
-      this.users = usersDB;
-      this.usersRole = this.users.map(user => {
-        return user.role === 'admin';
-      });
-    });
-  }
+  constructor(private USERS: UserManagementService) { }
 
   ngOnInit() {
+    this.USERS.users.subscribe(usersDB => {
+      this.users = usersDB;
+      this.usersRole = this.users.map(user => user.role === 'admin' || user.role === 'system-admin');
+    });
   }
 
   save(index: number) {

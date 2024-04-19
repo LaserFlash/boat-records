@@ -8,8 +8,10 @@
   "files": [
     "main.ts",
     "polyfills.ts"
-  ],  "include": [
-    "src/**/*.d.ts"
+  ],  
+  "include": [
+    "src/**/*.d.ts",
+    "src/scripts/*"
   ]
 ,
 }
