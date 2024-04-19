@@ -26,7 +26,7 @@ export class BoatUsageService {
   public usageData: BehaviorSubject<UsageInfo[]> = new BehaviorSubject([]);
 
   constructor(private db: AngularFirestore, BOATS: KnownBoatsService) {
-    this.itemsCollection = db.collection<UsageInfo>('/boatUsage', ref => ref.orderBy('endTime', 'desc').orderBy('boatID'));
+    this.itemsCollection = db.collection<UsageInfo>('/boatUsage', ref => ref.where('deletedAt', '==', null).orderBy('endTime', 'desc').orderBy('boatID'));
     this.itemsCollection.valueChanges().subscribe((data) => {
       // Sort usage for easier manipulation
       this.sortedByDate = data.sort((a, b) => {
@@ -93,7 +93,7 @@ export class BoatUsageService {
 
   getBatch(offset, batch_size) {
     return this.db
-      .collection<UsageInfo>('/boatUsage', ref => ref.orderBy('endTime', 'desc').startAfter(offset).limit(batch_size))
+      .collection<UsageInfo>('/boatUsage', ref => ref.where('deletedAt', '==', null).orderBy('endTime', 'desc').startAfter(offset).limit(batch_size))
       .snapshotChanges()
       .pipe(
         tap(arr => (arr.length ? null : (this.theEnd = true))),
@@ -119,14 +119,7 @@ export class BoatUsageService {
 
   addUsageInfo(usage: UsageInfo) {
     usage.duration = (usage.endTime - usage.startTime) / (3600000);
+    usage.deletedAt = null;
     return Promise.resolve(this.itemsCollection.add({ ...usage }));
   }
-
-  private buildDataList(val: UsageInfo[], array: UsageInfo[]) {
-    array.length = 0;
-    val.forEach(element => {
-      array.push(element);
-    });
-  }
-
 }

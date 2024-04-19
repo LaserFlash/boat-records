@@ -5,10 +5,11 @@ export class UsageInfo {
     public endTime: any,
     public duration: number,
     public driver: string,
-    public otherCrew: [{name:string}],
+    public otherCrew: [{ name: string }],
     public windSpeed: number,
     public windDirection: number,
-    public waterState: number
+    public waterState: number,
+    public deletedAt: Date | undefined
   ) { }
 }
 

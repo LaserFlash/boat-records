@@ -1,7 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { UsageInfo } from '../../../../../core/objects/usageInfo';
+import { UsageInfoID } from '../../../../../core/objects/usageInfo';
 import { WindSpeedConversionHelper, WindDirectionConversionHelper, WaterStateConversionHelper } from '../../../../../core/constants/menu-names/nameConversion';
 import { KnownBoatsService } from '../../../../../core/constants/known-boats/known-boats.service';
+import { BoatUsageService } from '../../providers/boat-usage.service';
+import { AuthenticationService } from '../../../../../core/auth/authentication.service';
+
 @Component({
   selector: 'usage-card',
   templateUrl: './usage-card.component.html',
@@ -9,11 +12,18 @@ import { KnownBoatsService } from '../../../../../core/constants/known-boats/kno
 })
 export class UsageCardComponent implements OnInit {
 
-  @Input() usage: UsageInfo;
+  @Input() usage: UsageInfoID;
+  canDelete = false;
 
-  constructor(private BOATS: KnownBoatsService) { }
+  constructor(private AUTH: AuthenticationService, private usageService: BoatUsageService, private BOATS: KnownBoatsService) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.AUTH.isAdmin.subscribe(isAdmin => this.canDelete = isAdmin);
+  }
+
+  deleteUsageRecord() {
+    this.usageService.deleteUsage(this.usage)
+  }
 
   getBoatName(v) {
     return this.BOATS.getBoatName(v);
@@ -34,6 +44,4 @@ export class UsageCardComponent implements OnInit {
   shortDuration(duration) {
     return Number.parseFloat(duration).toPrecision(2).toString();
   }
-
-
 }
