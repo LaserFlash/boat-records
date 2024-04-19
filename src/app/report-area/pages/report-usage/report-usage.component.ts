@@ -12,8 +12,6 @@ import { KnownBoatsService } from '../../../core/constants/known-boats/known-boa
 import { UsageInfo } from '../../../core/objects/usageInfo';
 import { BoatID } from '../../../core/objects/boat';
 
-const NUMBER_REGEX = /[0-9]+/;
-
 @Component({
   selector: 'app-report-usage',
   templateUrl: './report-usage.component.html',
@@ -134,12 +132,12 @@ export class ReportUsageComponent {
     });
   }
 
-  private addArrayCrew(): void {
+  public addArrayCrew(): void {
     const crew = this.usageForm.get('formArray').get([2]).get('notableCrew') as UntypedFormArray;
     crew.push(this.createArrayCrew());
   }
 
-  private removeCrew(i: number): void {
+  public removeCrew(i: number): void {
     if (i === undefined) { return; }
     const crew = this.usageForm.get('formArray').get([2]).get('notableCrew') as UntypedFormArray;
     crew.removeAt(i);
@@ -193,7 +191,8 @@ export class ReportUsageComponent {
         crew,
         WindSpeedConversionHelper.numberFromUserFriendlyName(this.usageForm.get('formArray').get([3]).get('windSpeed').value),
         WindDirectionConversionHelper.numberFromUserFriendlyName(this.usageForm.get('formArray').get([3]).get('windDirection').value),
-        WaterStateConversionHelper.numberFromUserFriendlyName(this.usageForm.get('formArray').get([3]).get('waterState').value)
+        WaterStateConversionHelper.numberFromUserFriendlyName(this.usageForm.get('formArray').get([3]).get('waterState').value),
+        null
       );
 
       this.usageService.addUsageInfo(usage).then(
@@ -212,10 +211,6 @@ export class ReportUsageComponent {
             })
         );
     }
-  }
-
-  getStartTime() {
-    console.log(this.usageForm.get('formArray').get([1]).get('startTime'));
   }
 
   /**

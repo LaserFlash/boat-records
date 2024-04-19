@@ -15,18 +15,18 @@ export class ViewUsageComponent implements OnInit {
   totalNumberItems = 0;
   pageSizeOptions = [20, 50, 100, 200, 500, 1000, 10000];
 
-  constructor(public usageService: BoatUsageService,private BOATS: KnownBoatsService) {}
+  constructor(public usageService: BoatUsageService, private BOATS: KnownBoatsService) { }
 
-  ngOnInit(){}
+  ngOnInit() { }
 
-  getUsages(event?: PageEvent) {  
+  getUsages(event?: PageEvent) {
     if (event.pageSize != this.usageService.batch_size) {
       return this.usageService.updateBatch(event.pageSize);
     }
     if (event.pageIndex > event.previousPageIndex) {
-      return this.usageService.forwardBatch(event.pageSize - 1);     
+      return this.usageService.forwardBatch(event.pageSize - 1);
     } else if (event.pageIndex < event.previousPageIndex) {
-      return this.usageService.backBatch(event.pageSize - 1);
+      return this.usageService.backBatch();
     }
   }
 
@@ -57,19 +57,19 @@ export class ViewUsageComponent implements OnInit {
       link.setAttribute("href", encodedUri);
       link.setAttribute("download", "usage.csv");
       document.body.appendChild(link); // Required for FF
-      
+
       link.click();
     });
-    
+
     fetchData.unsubscribe()
   }
 
   private convertToCSV(arr) {
     const array = [Object.keys(arr[0])].concat(arr)
-  
-    return array.map(row => 
-      Object.values(row).map(value => 
-         typeof value === 'string' ? JSON.stringify(value) : value
+
+    return array.map(row =>
+      Object.values(row).map(value =>
+        typeof value === 'string' ? JSON.stringify(value) : value
       ).toString()
     ).join('\n')
   }

@@ -56,8 +56,11 @@
             <span>{{getSeaState(usage.waterState)}}</span>
           </mat-list-item>
         </mat-list>
-
       </div>
     </div>
+
+    <mat-action-row *ngIf="canDelete" align="end">
+      <button mat-flat-button color="warn" (click)="deleteUsageRecord()">Remove entry</button>
+    </mat-action-row>
 
   </mat-expansion-panel>
