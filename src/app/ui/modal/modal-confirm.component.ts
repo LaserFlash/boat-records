@@ -2,7 +2,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { Component } from '@angular/core';
 
 @Component({
-    selector: 'confirm-dialog',
+    selector: 'modal-confirm',
     template: `
         <h1 mat-dialog-title>{{ title }}</h1>
         <mat-dialog-content style='font-family: Roboto, "Helvetica Neue", sans-serif;'>
@@ -17,9 +17,9 @@ import { Component } from '@angular/core';
         </mat-dialog-actions>
     `,
 })
-export class ConfirmDialogComponent {
+export class ConfirmModalComponent {
     public title: string;
     public message: string;
     public button: string;
-    constructor(public dialogRef: MatDialogRef<ConfirmDialogComponent>) {}
+    constructor(public dialogRef: MatDialogRef<ConfirmModalComponent>) { }
 }

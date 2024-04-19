@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 
 /* Import Building components */
 import { BreakageCardComponent } from './breakage-card.component';
-import { DialogsModule } from './dialog/dialogs.module';
-import { DialogsService } from './dialog/dialogs.service';
+import { ModalModule } from '../modal/modal.module';
+import { ModalService } from '../modal/modal.service';
 import { ImportanceConversionHelper } from '../../core/constants/menu-names/nameConversion';
 
 import { SharedServicesModule } from '../../core/shared-services.module';
@@ -22,7 +22,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
   ],
   imports: [
     CommonModule,
-    DialogsModule,
+    ModalModule,
     FlexLayoutModule,
     MatCardModule,
     MatListModule,
@@ -31,7 +31,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
   ],
   providers: [
-    DialogsService,
+    ModalService,
     ImportanceConversionHelper
   ],
   exports: [

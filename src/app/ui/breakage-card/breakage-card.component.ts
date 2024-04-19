@@ -4,7 +4,7 @@ import { BreakageInfo } from '../../core/objects/breakageInfo';
 import { ImportanceConversionHelper } from '../../core/constants/menu-names/nameConversion';
 
 import { KnownBoatsService } from '../../core/constants/known-boats/known-boats.service';
-import { DialogsService } from './dialog/dialogs.service';
+import { ModalService } from '../modal/modal.service';
 import { ThemeTrackerService } from '../../core/theme/theme-tracker.service';
 
 @Component({
@@ -21,7 +21,7 @@ export class BreakageCardComponent implements OnInit {
 
   constructor(
     private themeTracker: ThemeTrackerService,
-    private dialogsService: DialogsService,
+    private dialogsService: ModalService,
     private BOATS: KnownBoatsService
   ) {
     /* Apply theme at start & whenever a change*/
