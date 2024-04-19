@@ -8,6 +8,9 @@
     "build:prod": "ng build --configuration production",
     "lint": "ng lint"
   },
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "^14.3.0",
