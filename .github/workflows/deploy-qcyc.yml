@@ -1,0 +1,21 @@
+name: QCYC Release
+"on": 
+  push:
+    branches:
+      - master
+jobs:
+  build_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - run: npm ci && npm run build:qcyc
+      - run: cd functions && npm ci
+      - uses: w9jds/setup-firebase@main
+        with:
+          tools-version: 12.9.1
+          project_id: qcyc-usagemaintenancetracker
+          gcp_sa_key: ${{ secrets.GC_ACCOUNT_QCYC_USAGEMAINTENANCETRACKER }}
+      - run: firebase deploy -f

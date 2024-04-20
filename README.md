@@ -1,12 +1,17 @@
-[![Build Status](https://travis-ci.org/LaserFlash/qcyc-usagemaintenancetracker.svg?branch=master)](https://travis-ci.org/LaserFlash/qcyc-usagemaintenancetracker)
+[![DEV Release](https://github.com/LaserFlash/qcyc-usagemaintenancetracker/actions/workflows/deploy-boat-records/badge.svg)](https://github.com/LaserFlash/qcyc-usagemaintenancetracker/actions/workflows/deploy-boat-records.yml) [![DEV Release](https://github.com/LaserFlash/qcyc-usagemaintenancetracker/actions/workflows/deploy-qcyc/badge.svg)](https://github.com/LaserFlash/qcyc-usagemaintenancetracker/actions/workflows/deploy-qcyc.yml)
 
-# QCYC Usage and Maintenance Tracker
+# Boat Records and Maintenance Tracker
 
-Source code for the web app hosted at
-https://qcyc-usagemaintenancetracker.firebaseapp.com/ Built using Angular7 and
-Material2.
+## Setup
 
-Records and provides information relating to boats and safety for the Queen
-Charlotte Yacht Club.
+This repo can build and deploy multiple versions of this site / app.  
+To support this we have `environments/` where we can provide assets and config that vary for each version of the site.
 
-You can find more about them here <https://qcyc.org.nz/>
+## Development
+
+To start local development run `npm run start`.  
+This action performs a couple of things.
+  - copies `environments/dev` into application src directory
+  - enables config and styles that are unique to this environment
+
+
