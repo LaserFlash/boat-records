@@ -3,9 +3,9 @@
   "version": "0.0.1",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve  --poll 500",
-    "build": "ng build",
-    "build:prod": "ng build --configuration production",
+    "start": "cp -r environments/dev/* src/ && ng serve  --poll 500",
+    "build": "cp -r environments/dev/* src/ && ng build",
+    "build:qcyc": "cp -r environments/qcyc/* src/ && ng build --configuration prod,qcyc",
     "lint": "ng lint"
   },
   "engines": {

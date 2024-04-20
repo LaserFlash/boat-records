@@ -7,7 +7,7 @@ import { AuthenticationService } from './core/auth/authentication.service';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 
-import { environment } from '../environments/environment';
+import { environment, title as siteTitle } from '../environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +16,7 @@ import { environment } from '../environments/environment';
   viewProviders: [MatIconRegistry]
 })
 export class AppComponent implements OnInit {
-  title = 'QCYC';
+  title = siteTitle;
   build: string;
   currentDate = new Date();
   isDarkTheme: boolean;
