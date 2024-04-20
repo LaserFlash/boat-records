@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "NPYC-UsageMaintenaceTracker": {
+    "boat-records": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -69,22 +69,11 @@
           "defaultConfiguration": ""
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "browserTarget": "NPYC-UsageMaintenaceTracker:build"
-          },
-          "configurations": {
-            "production": {
-              "browserTarget": "NPYC-UsageMaintenaceTracker:build:production"
-            }
-          }
-        },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "browserTarget": "QCYC-UsageMaintenaceTracker:build"
-          }
-        }  
+          "builder": "@angular-devkit/build-angular:dev-server",    
+          "options":{
+            "browserTarget": "boat-records:build"
+          }          
+        }
       }
     }
   },
