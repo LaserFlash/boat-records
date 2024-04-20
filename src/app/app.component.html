@@ -1,84 +1,86 @@
-<mat-toolbar color="primary">
-  <button style="margin-left:5px;" mat-icon-button (click)="sidenav.toggle()">
-    <mat-icon>menu</mat-icon>
-  </button>
-  <span id="menuSpacer"></span>
-  <span><img id="menuLogo" src="assets/images/logoNoText.png" alt="QCYC Logo" /></span>
-  <span id="menuSpacer"></span>
-  <span id="menuTitle">
-    {{title}}
-  </span>
-  <!-- This fills the remaining space of the current row -->
-  <span class="toolbar-spacer"></span>
+<div [class.app-dark]="isDarkTheme">
+  <mat-toolbar color="primary">
+    <button style="margin-left:5px;" mat-icon-button (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span id="menuSpacer"></span>
+    <span><img id="menuLogo" src="assets/images/logoNoText.png" role="presentation" /></span>
+    <span id="menuSpacer"></span>
+    <span id="menuTitle">
+      {{title}}
+    </span>
+    <!-- This fills the remaining space of the current row -->
+    <span class="toolbar-spacer"></span>
 
-  <span fxHide.lt-md>
-    <nav mat-tab-nav-bar>
-      <a mat-tab-link *ngFor="let routeLink of routeLinks" [routerLink]="getRouteLink(routeLink.link)" [active]="checkActive(routeLink.link)">
-        {{routeLink.label}}
-      </a>
-    </nav>
-  </span>
-</mat-toolbar>
-
-<mat-sidenav-container class="content" [class.app-dark]="isDarkTheme" hasBackdrop="true">
-  <mat-sidenav class="sidenav noPrint" #sidenav mode="push" fixedInViewport="true">
-    <img id="logo-image-drawer" src="assets/images/logo.png" alt="QCYC Logo" />
-    <mat-nav-list>
-
-      <hr />
-      <h3 matSubheader>Tasks</h3>
-      <a mat-list-item *ngFor="let routeLink of routeLinks" [routerLink]="getRouteLink(routeLink.link)" (click)="sidenav.close()">
-        {{routeLink.label}}
-      </a>
-      <ng-container *ngIf=isAdmin>
-        <hr />
-        <h3 matSubheader>Admin</h3>
-        <a mat-list-item [routerLink]="adminLink.link" (click)="sidenav.close()">
-          {{adminLink.label}}
-        </a>
-      </ng-container>
-      <hr />
-      <h3 matSubheader>Account</h3>
-      <signup></signup>
-      <hr />
-    </mat-nav-list>
-    <br />
-    <button mat-button class="nav-button" (click)="toggleDark(); sidenav.close();">TOGGLE DARK THEME</button>
-    <br />
-    <button mat-button class="nav-button" (click)="sidenav.close(); print();">PRINT</button>
-    <mat-list style="position: relative; height: auto;">
-      <a style="text-decoration: none;" href="https://lasr.dev" mat-list-item>
-      ©{{currentDate | date:'yyyy'}} Bryn Bennett
-    </a>
-      <a style="text-decoration: none;" href="https://github.com/LaserFlash/QCYC-UsageMaintenanceTracker" mat-list-item>
-      <img width="32" width="32" src="https://unpkg.com/simple-icons@latest/icons/github.svg" /> &nbsp; Source Code
-    </a>
-      <mat-list-item>
-        Build {{build}}
-      </mat-list-item>
-    </mat-list>
-  </mat-sidenav>
-
-  <mat-sidenav-content class="noScroll">
-    <div id="scrollId" class="sidenav-content">
-      <div id="section-to-print">
-        <router-outlet></router-outlet>
-      </div>
-    </div>
-    <!-- Bottom Navigation Bar -->
-    <div class="bottom-navigation bg-color-primary" fxHide.gt-sm>
+    <span fxHide.lt-md>
       <nav mat-tab-nav-bar>
-        <a fxFlex="calc(100%/{{routeLinks.length}})" mat-tab-link *ngFor="let routeLink of routeLinks" [routerLink]="getRouteLink(routeLink.link)" [active]="checkActive(routeLink.link)">
-
-          <div fxLayout="column">
-            <div fxFlex>
-              <mat-icon svgIcon="{{routeLink.name}}"></mat-icon>
-            </div>
-            <div style="margin-top: -10px;" fxFlex>{{routeLink.label}}</div>
-          </div>
-
+        <a mat-tab-link *ngFor="let routeLink of routeLinks" [routerLink]="getRouteLink(routeLink.link)" [active]="checkActive(routeLink.link)">
+          {{routeLink.label}}
         </a>
       </nav>
-    </div>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+    </span>
+  </mat-toolbar>
+
+  <mat-sidenav-container class="content" hasBackdrop="true">
+    <mat-sidenav class="sidenav noPrint" #sidenav mode="push" fixedInViewport="true">
+      <img id="logo-image-drawer" src="assets/images/logo.png" alt="{{title}}" />
+      <mat-nav-list>
+
+        <hr />
+        <h3 matSubheader>Tasks</h3>
+        <a mat-list-item *ngFor="let routeLink of routeLinks" [routerLink]="getRouteLink(routeLink.link)" (click)="sidenav.close()">
+          {{routeLink.label}}
+        </a>
+        <ng-container *ngIf=isAdmin>
+          <hr />
+          <h3 matSubheader>Admin</h3>
+          <a mat-list-item [routerLink]="adminLink.link" (click)="sidenav.close()">
+            {{adminLink.label}}
+          </a>
+        </ng-container>
+        <hr />
+        <h3 matSubheader>Account</h3>
+        <signup></signup>
+        <hr />
+      </mat-nav-list>
+      <br />
+      <button mat-button class="nav-button" (click)="toggleDark(); sidenav.close();">TOGGLE DARK THEME</button>
+      <br />
+      <button mat-button class="nav-button" (click)="sidenav.close(); print();">PRINT</button>
+      <mat-list style="position: relative; height: auto;">
+        <a style="text-decoration: none;" href="https://lasr.dev" mat-list-item>
+        ©{{currentDate | date:'yyyy'}} Bryn Bennett
+      </a>
+        <a style="text-decoration: none;" href="https://github.com/LaserFlash/QCYC-UsageMaintenanceTracker" mat-list-item>
+        <img width="32" width="32" src="https://unpkg.com/simple-icons@latest/icons/github.svg" /> &nbsp; Source Code
+      </a>
+        <mat-list-item>
+          Build {{build}}
+        </mat-list-item>
+      </mat-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content class="noScroll">
+      <div id="scrollId" class="sidenav-content">
+        <div id="section-to-print">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+      <!-- Bottom Navigation Bar -->
+      <div class="bottom-navigation bg-color-primary" fxHide.gt-sm>
+        <nav mat-tab-nav-bar>
+          <a fxFlex="calc(100%/{{routeLinks.length}})" mat-tab-link *ngFor="let routeLink of routeLinks" [routerLink]="getRouteLink(routeLink.link)" [active]="checkActive(routeLink.link)">
+
+            <div fxLayout="column">
+              <div fxFlex>
+                <mat-icon svgIcon="{{routeLink.name}}"></mat-icon>
+              </div>
+              <div style="margin-top: -10px;" fxFlex>{{routeLink.label}}</div>
+            </div>
+
+          </a>
+        </nav>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

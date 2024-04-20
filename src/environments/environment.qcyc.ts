@@ -10,3 +10,5 @@ export const environment = {
     messagingSenderId: "317211543661",
   },
 };
+
+export const title = 'QCYC'
