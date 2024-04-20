@@ -10,7 +10,7 @@
   <mat-card-content>
     <mat-list>
       <mat-list-item *ngFor="let item of usageLastMonth; ">
-        <img matListAvatar src="assets/images/boat_{{item.boat}}.png" onerror="if (this.src !== 'assets/images/noImage.png') this.src = 'assets/images/noImage.png';" alt={{getBoatName(item.boat)}} />
+        <img matListAvatar src="assets/images/boat_{{item.boat}}.png" onerror="if (this.src !== 'assets/icons/noImage.png') this.src = 'assets/icons/noImage.png';" alt={{getBoatName(item.boat)}} />
         <h3 matLine> {{getBoatName(item.boat)}} </h3>
         <p matLine>
           <span mat-line>{{item.duration | number:'.0-2' }} hours</span>
