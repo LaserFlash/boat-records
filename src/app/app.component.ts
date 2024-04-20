@@ -7,7 +7,7 @@ import { AuthenticationService } from './core/auth/authentication.service';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 
-import { environment } from '../environments/environment';
+import { environment, title as siteTitle } from '../environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +16,7 @@ import { environment } from '../environments/environment';
   viewProviders: [MatIconRegistry]
 })
 export class AppComponent implements OnInit {
-  title = 'QCYC';
+  title = siteTitle;
   build: string;
   currentDate = new Date();
   isDarkTheme: boolean;
@@ -50,11 +50,11 @@ export class AppComponent implements OnInit {
     this.setBackground();
 
     iconRegistry.addSvgIcon('docs',
-      sanitizer.bypassSecurityTrustResourceUrl('assets/images/file-document.svg'))
+      sanitizer.bypassSecurityTrustResourceUrl('assets/icons/file-document.svg'))
       .addSvgIcon('report',
-        sanitizer.bypassSecurityTrustResourceUrl('assets/images/clipboard-outline.svg'))
+        sanitizer.bypassSecurityTrustResourceUrl('assets/icons/clipboard-outline.svg'))
       .addSvgIcon('view',
-        sanitizer.bypassSecurityTrustResourceUrl('assets/images/view-stream.svg'));
+        sanitizer.bypassSecurityTrustResourceUrl('assets/icons/view-stream.svg'));
 
     AUTH.isAdmin.subscribe(value => {
       this.isAdmin = value;
@@ -70,7 +70,7 @@ export class AppComponent implements OnInit {
         return;
       }
       const element = document.getElementById('scrollId');
-      setTimeout(function() {
+      setTimeout(function () {
         element.scrollIntoView();
         window.scrollTo(0, 0);
       }, 1);

@@ -3,7 +3,7 @@
   <mat-card-content>
     <mat-list>
       <mat-list-item *ngFor="let u of usage">
-        <img matListAvatar *ngIf="getBoatName(u.boatID)" src="assets/images/boat_{{u.boatID}}.png" onerror="if (this.src !== 'assets/images/noImage.png') this.src = 'assets/images/noImage.png';" alt={{getBoatName(u.boatID)}} />
+        <img matListAvatar *ngIf="getBoatName(u.boatID)" src="assets/images/boat_{{u.boatID}}.png" onerror="if (this.src !== 'assets/icons/noImage.png') this.src = 'assets/icons/noImage.png';" alt={{getBoatName(u.boatID)}} />
         <h3 matLine> {{getBoatName(u.boatID)}} </h3>
         <p matLine>
           <span mat-line>{{u.duration | number:'.0-2'}} hours</span>

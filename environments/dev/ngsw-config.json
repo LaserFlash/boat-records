@@ -1,14 +1,14 @@
 {
   "index": "/index.html",
   "assetGroups": [{
-    "name": "app",
+    "name": "Dev_BR",
     "installMode": "prefetch",
     "resources": {
       "files": [
-        "/favicon.ico",
         "/index.html",
-        "/*.css",
-        "/*.js"
+        "/*.bundle.css",
+        "/*.bundle.js",
+        "/*.chunk.js"
       ]
     }
   }, {

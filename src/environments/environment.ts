@@ -9,3 +9,6 @@ export const environment = {
     storageBucket: "boat-records-dev-8caed.appspot.com",
   },
 };
+
+
+export const title = 'Boat Records'

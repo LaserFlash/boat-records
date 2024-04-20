@@ -37,13 +37,7 @@
             "namedChunks": true
           },
           "configurations": {
-            "production": {
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
-                }
-              ],
+            "prod": {    
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
@@ -60,6 +54,14 @@
                 {
                   "type": "anyComponentStyle",
                   "maximumWarning": "6kb"
+                }
+              ]
+            },
+            "qcyc":{
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.qcyc.ts"
                 }
               ]
             }
