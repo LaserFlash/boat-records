@@ -1,4 +1,4 @@
-[![DEV Release](https://github.com/LaserFlash/qcyc-usagemaintenancetracker/actions/workflows/deploy-boat-records/badge.svg)](https://github.com/LaserFlash/qcyc-usagemaintenancetracker/actions/workflows/deploy-boat-records.yml) [![DEV Release](https://github.com/LaserFlash/qcyc-usagemaintenancetracker/actions/workflows/deploy-qcyc/badge.svg)](https://github.com/LaserFlash/qcyc-usagemaintenancetracker/actions/workflows/deploy-qcyc.yml)
+[![DEV Release](https://github.com/LaserFlash/qcyc-usagemaintenancetracker/actions/workflows/deploy-boat-records.yml/badge.svg)](https://github.com/LaserFlash/qcyc-usagemaintenancetracker/actions/workflows/deploy-boat-records.yml) [![QCYC Release](https://github.com/LaserFlash/qcyc-usagemaintenancetracker/actions/workflows/deploy-qcyc.yml/badge.svg)](https://github.com/LaserFlash/qcyc-usagemaintenancetracker/actions/workflows/deploy-qcyc.yml)
 
 # Boat Records and Maintenance Tracker
 

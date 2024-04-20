@@ -1,7 +1,7 @@
 {
   "index": "/index.html",
   "assetGroups": [{
-    "name": "Dev_BR",
+    "name": "App",
     "installMode": "prefetch",
     "resources": {
       "files": [
