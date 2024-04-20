@@ -44,3 +44,10 @@ Thumbs.db
 
 firebase-debug.log
 .firebase/*
+
+# environment specific modular assets
+/src/manifest.json
+/src/ngsw-config.json
+/src/theme.scss
+/src/assets/favicon/*
+/src/assets/images/*

@@ -1,0 +1,16 @@
+{
+  "name": "DEV Boat Records",
+  "short_name": "Dev BR",
+  "theme_color": "#283593",
+  "background_color": "#283593",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/",
+  "icons": [
+        {
+            "src": "assets/favicon/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        }
+  ]
+}

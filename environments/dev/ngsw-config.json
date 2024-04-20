@@ -1,0 +1,24 @@
+{
+  "index": "/index.html",
+  "assetGroups": [{
+    "name": "Dev_BR",
+    "installMode": "prefetch",
+    "resources": {
+      "files": [
+        "/index.html",
+        "/*.bundle.css",
+        "/*.bundle.js",
+        "/*.chunk.js"
+      ]
+    }
+  }, {
+    "name": "assets",
+    "installMode": "lazy",
+    "updateMode": "prefetch",
+    "resources": {
+      "files": [
+        "/assets/**"
+      ]
+    }
+  }]
+}
