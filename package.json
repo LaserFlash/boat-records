@@ -1,12 +1,13 @@
 {
-  "name": "QCYC-UsageMaintenaceTracker",
-  "version": "0.0.1",
+  "name": "boat-records",
   "scripts": {
     "ng": "ng",
     "start": "cp -r environments/dev/* src/ && ng serve  --poll 500",
     "build": "cp -r environments/dev/* src/ && ng build  --configuration prod",
     "build:qcyc": "cp -r environments/qcyc/* src/ && ng build --configuration prod,qcyc",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "prestart": "node git-version.js",
+    "prebuild": "node git-version.js"
   },
   "engines": {
     "node": ">=18.0.0"
@@ -46,6 +47,7 @@
     "@angular/cli": "^14.2.13",
     "@angular/compiler-cli": "^14.3.0",
     "@angular/language-service": "^14.3.0",
+    "git-describe": "^4.1.1",
     "typescript": "~4.6.4"
   }
 }
