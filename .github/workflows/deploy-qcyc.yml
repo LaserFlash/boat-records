@@ -12,7 +12,7 @@ jobs:
         with:
           node-version: 18
       - run: npm ci && npm run build:qcyc
-      - run: cd functions && npm ci
+      - run: cd firebase/functions && npm ci
       - uses: w9jds/setup-firebase@main
         with:
           tools-version: 12.9.1
