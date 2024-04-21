@@ -3,6 +3,8 @@ name: DEV Release
   push:
     branches:
       - master
+    tags:        
+      - 'v*' 
 jobs:
   build_deploy:
     runs-on: ubuntu-latest

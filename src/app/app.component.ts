@@ -7,7 +7,8 @@ import { AuthenticationService } from './core/auth/authentication.service';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 
-import { environment, title as siteTitle } from '../environments/environment';
+import { title as siteTitle } from '../environments/environment';
+import { versionInfo } from '../version'
 
 @Component({
   selector: 'app-root',
@@ -60,8 +61,7 @@ export class AppComponent implements OnInit {
       this.isAdmin = value;
     });
 
-    this.build = environment.version;
-
+    versionInfo.then(version => this.build = version);
   }
 
   ngOnInit() {

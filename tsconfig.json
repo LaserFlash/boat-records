@@ -8,6 +8,7 @@
     "declaration": false,
     "module": "esnext",
     "moduleResolution": "node",
+    "resolveJsonModule": true,
     "experimentalDecorators": true,
     "target": "es2020",
     "typeRoots": [
