@@ -8,6 +8,8 @@
     "build": "cp -r environments/dev/* src/ && ng build  --configuration prod",
     "prebuild:qcyc": "node git-version.js",
     "build:qcyc": "cp -r environments/qcyc/* src/ && ng build --configuration prod,qcyc",
+    "prebuild:wbbc": "node git-version.js",
+    "build:wbbc": "cp -r environments/wbbc/* src/ && ng build --configuration prod,wbbc",
     "lint": "ng lint"
   },
   "engines": {
