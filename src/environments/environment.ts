@@ -11,3 +11,5 @@ export const environment = {
 
 
 export const title = 'Boat Records'
+
+export const incidentForm = ""

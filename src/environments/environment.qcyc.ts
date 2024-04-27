@@ -11,3 +11,5 @@ export const environment = {
 };
 
 export const title = 'QCYC'
+
+export const incidentForm = "https://docs.google.com/forms/d/18e0GFmMuohaqxdplNnIBKoXKu8dn7FTy03shkj4p7s0/viewform?embedded=true"

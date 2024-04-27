@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { incidentForm } from '../../../../environments/environment'
 
 @Component({
   selector: 'app-report-incident',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./report-incident.component.css']
 })
 export class ReportIncidentComponent implements OnInit {
+
+  protected formURL = incidentForm
 
   constructor() { }
 

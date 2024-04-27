@@ -11,3 +11,5 @@ export const environment = {
 };
 
 export const title = 'WBBC'
+
+export const incidentForm = ""
