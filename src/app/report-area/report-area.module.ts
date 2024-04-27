@@ -47,6 +47,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { FileUploadModule } from 'ng2-file-upload';
 import { CloudinaryModule } from '@cloudinary/angular-5.x';
 import { Cloudinary } from 'cloudinary-core';
+import { SafePipe } from '../pipes/safe.pipe';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { Cloudinary } from 'cloudinary-core';
     ReportIncidentComponent,
     LastUsesComponent,
     UsageGraphsComponent,
+    SafePipe
   ],
   imports: [
     CommonModule,
