@@ -13,7 +13,6 @@ export const Parts: string[] = [
   'Safety Equipment',
   'Prop',
   'Radio',
-  'Safety Equipment',
   'Other',
 ];
 
