@@ -10,7 +10,7 @@ import { ThemeTrackerService } from '../../core/theme/theme-tracker.service';
 @Component({
   selector: 'breakage-card',
   templateUrl: './breakage-card.component.html',
-  styleUrls: ['./breakage-card.component.css']
+  styleUrls: ['./breakage-card.component.scss']
 })
 export class BreakageCardComponent implements OnInit {
   isDarkTheme: boolean;

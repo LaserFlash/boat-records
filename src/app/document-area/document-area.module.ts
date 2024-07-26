@@ -28,15 +28,13 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { FormsModule } from '@angular/forms';
-import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [DocumentAreaComponent, SafetyDocsComponent, InlineEditInputComponent],
   imports: [
     CommonModule,
     DocumentAreaRoutingModule,
-    FormsModule,
-    FlexLayoutModule,
+    FormsModule, 
     MatCardModule,
     MatToolbarModule,
     MatTabsModule,

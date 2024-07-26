@@ -1,7 +1,7 @@
 <div (swipeleft)="swipe($event.type)" (swiperight)="swipe($event.type)">
   <mat-toolbar style="margin-top:-10px;" color="primary">
     <span></span>
-    <nav fxFlex style="width:100%;" mat-tab-nav-bar>
+    <nav class="flex-1" style="width:100%;" mat-tab-nav-bar>
       <a style="width:33%;" mat-tab-link *ngFor="let routeLink of routeLinks" [routerLink]="routeLink.link" routerLinkActive #rla="routerLinkActive" [active]="rla.isActive">
         {{routeLink.label}}
       </a>

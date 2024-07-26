@@ -1,7 +1,16 @@
-.card_top_pad {
-  margin-top: 10px;
+.chart-card {
+  flex-basis: 70%;
+  height: 100%;
 }
 
-.card_bottom_pad{
-  margin-bottom: 10px;
+.summary-card {
+  flex-basis: 30%;
+  height: 100%;
+}
+
+@media (width <=956px) {
+  .chart-card,
+  .summary-card {
+    flex-basis: 98;
+  }
 }

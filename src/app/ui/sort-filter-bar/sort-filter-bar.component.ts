@@ -1,30 +1,29 @@
-import { Component, Input, ViewChild, ElementRef, OnInit } from '@angular/core';
-import { DateAdapter } from '@angular/material/core';
+import { Component, Input, ViewChild, ElementRef, OnInit } from "@angular/core";
+import { DateAdapter } from "@angular/material/core";
 
-import { BreakageInfo } from '../../core/objects/breakageInfo';
+import { BreakageInfo } from "../../core/objects/breakageInfo";
 
-import { Parts } from '../../core/constants/menu-names/menuNames';
-import { KnownBoatsService } from '../../core/constants/known-boats/known-boats.service';
+import { Parts } from "../../core/constants/menu-names/menuNames";
+import { KnownBoatsService } from "../../core/constants/known-boats/known-boats.service";
 
 @Component({
-  selector: 'sort-filter-bar',
-  templateUrl: './sort-filter-bar.component.html',
-  styleUrls: ['./sort-filter-bar.component.css']
+  selector: "sort-filter-bar",
+  templateUrl: "./sort-filter-bar.component.html",
+  styleUrls: ["./sort-filter-bar.component.scss"],
 })
-
 export class SortFilterBarComponent implements OnInit {
   @Input() breakages: BreakageInfo[];
   @Input() original: BreakageInfo[];
 
-  @ViewChild('startPicker', { static: true }) startPicker: ElementRef;
-  @ViewChild('endPicker', { static: true }) endPicker: ElementRef;
+  @ViewChild("startPicker", { static: true }) startPicker: ElementRef;
+  @ViewChild("endPicker", { static: true }) endPicker: ElementRef;
 
   sortList: string[] = [
-    'Newest',
-    'Oldest',
-    'Most Important',
-    'Least Important',
-    'Boat'
+    "Newest",
+    "Oldest",
+    "Most Important",
+    "Least Important",
+    "Boat",
   ];
 
   filterList;
@@ -32,7 +31,7 @@ export class SortFilterBarComponent implements OnInit {
   partfilterList: string[] = Parts;
   appliedFilters: string[] = [];
   partappliedFilters: string[] = [];
-  sortBy = 'Sort by';
+  sortBy = "Sort by";
 
   startMaxDate: Date = new Date();
   endMaxDate: Date = new Date();
@@ -42,10 +41,10 @@ export class SortFilterBarComponent implements OnInit {
     private BOATS: KnownBoatsService,
     private dateAdapter: DateAdapter<Date>
   ) {
-    this.dateAdapter.setLocale('en-nz');
+    this.dateAdapter.setLocale("en-nz");
   }
   ngOnInit() {
-    this.BOATS.boatInformation.subscribe(boats => {
+    this.BOATS.boatInformation.subscribe((boats) => {
       this.filterList = boats;
     });
     this.resetFilter();
@@ -55,8 +54,8 @@ export class SortFilterBarComponent implements OnInit {
     this.startMaxDate = new Date();
     this.endMaxDate = new Date();
     this.endMinDate = new Date(1997, 8, 27);
-    this.startPicker.nativeElement.value = ' ';
-    this.endPicker.nativeElement.value = ' ';
+    this.startPicker.nativeElement.value = " ";
+    this.endPicker.nativeElement.value = " ";
     this.filter();
   }
 
@@ -80,13 +79,10 @@ export class SortFilterBarComponent implements OnInit {
   private filter() {
     let filtered;
     /* Apply filters taking into account any boat filters also applied */
-    filtered =
-      this.original.filter(
-        (item) => this.partFilter(item)).filter(
-          (item) => this.boatFilter(item)
-        ).filter(
-          (item) => this.timeFilter(item)
-        );
+    filtered = this.original
+      .filter((item) => this.partFilter(item))
+      .filter((item) => this.boatFilter(item))
+      .filter((item) => this.timeFilter(item));
 
     this.breakages.splice(0, this.breakages.length);
     for (let i = 0; i < filtered.length; i++) {
@@ -102,7 +98,7 @@ export class SortFilterBarComponent implements OnInit {
     if (index !== -1) {
       this.appliedFilters.splice(index, 1);
     } else {
-      this.appliedFilters.push(key);  // add filter
+      this.appliedFilters.push(key); // add filter
     }
 
     this.filter();
@@ -125,12 +121,11 @@ export class SortFilterBarComponent implements OnInit {
     if (this.appliedFilters.length === 0) {
       return true;
     }
-    return this.appliedFilters.some(
-      filter => {
-        if (String(item.boatID) === String(filter)) {
-          return true;
-        }
-      });
+    return this.appliedFilters.some((filter) => {
+      if (String(item.boatID) === String(filter)) {
+        return true;
+      }
+    });
   }
 
   /** Get the data that meets the filter */
@@ -138,12 +133,11 @@ export class SortFilterBarComponent implements OnInit {
     if (this.partappliedFilters.length === 0) {
       return true;
     }
-    return this.partappliedFilters.some(
-      filter => {
-        if (item.part === filter) {
-          return true;
-        }
-      });
+    return this.partappliedFilters.some((filter) => {
+      if (item.part === filter) {
+        return true;
+      }
+    });
   }
 
   private timeFilter(item) {
@@ -151,7 +145,9 @@ export class SortFilterBarComponent implements OnInit {
     if (item.timestampFixed) {
       time = item.timestampFixed;
     }
-    return time.toDate() >= this.endMinDate && time.toDate() <= this.startMaxDate;
+    return (
+      time.toDate() >= this.endMinDate && time.toDate() <= this.startMaxDate
+    );
   }
 
   private changeSort(sort: string) {
@@ -161,20 +157,20 @@ export class SortFilterBarComponent implements OnInit {
   /** Sort the data */
   private sort() {
     const sort = this.sortBy;
-    if (sort === 'Newest') {
+    if (sort === "Newest") {
       this.breakages.sort((a, b) => {
         return this.sortOrder(b, a);
       });
-    } else if (sort === 'Oldest') {
+    } else if (sort === "Oldest") {
       this.breakages.sort((a, b) => {
         return this.sortOrder(a, b);
       });
-    } else if (sort === 'Boat') {
+    } else if (sort === "Boat") {
       this.breakages.sort((a, b) => a.boatID - b.boatID);
     } else {
-      if (sort === 'Most Important') {
+      if (sort === "Most Important") {
         this.breakages.sort((a, b) => b.importance - a.importance);
-      } else if (sort === 'Least Important') {
+      } else if (sort === "Least Important") {
         this.breakages.sort((a, b) => a.importance - b.importance);
       }
     }
@@ -182,7 +178,10 @@ export class SortFilterBarComponent implements OnInit {
 
   private sortOrder(a, b) {
     if (a.timestampFixed && b.timestampFixed) {
-      return a.timestampFixed.toDate().getTime() - b.timestampFixed.toDate().getTime();
+      return (
+        a.timestampFixed.toDate().getTime() -
+        b.timestampFixed.toDate().getTime()
+      );
     }
     return a.timestamp.toDate().getTime() - b.timestamp.toDate().getTime();
   }
@@ -190,5 +189,4 @@ export class SortFilterBarComponent implements OnInit {
   private getBoatName(v) {
     return this.BOATS.getBoatName(v);
   }
-
 }

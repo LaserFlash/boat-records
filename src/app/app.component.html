@@ -12,7 +12,7 @@
     <!-- This fills the remaining space of the current row -->
     <span class="toolbar-spacer"></span>
 
-    <span fxHide.lt-md>
+    <span class="hide-sm">
       <nav mat-tab-nav-bar>
         <a mat-tab-link *ngFor="let routeLink of routeLinks" [routerLink]="getRouteLink(routeLink.link)" [active]="checkActive(routeLink.link)">
           {{routeLink.label}}
@@ -67,15 +67,15 @@
         </div>
       </div>
       <!-- Bottom Navigation Bar -->
-      <div class="bottom-navigation bg-color-primary" fxHide.gt-sm>
+      <div class="bottom-navigation bg-color-primary hide-gt-sm">
         <nav mat-tab-nav-bar>
-          <a fxFlex="calc(100%/{{routeLinks.length}})" mat-tab-link *ngFor="let routeLink of routeLinks" [routerLink]="getRouteLink(routeLink.link)" [active]="checkActive(routeLink.link)">
+          <a mat-tab-link *ngFor="let routeLink of routeLinks" [routerLink]="getRouteLink(routeLink.link)" [active]="checkActive(routeLink.link)">
 
-            <div fxLayout="column">
-              <div fxFlex>
+            <div class="flex-col">
+              <div class="flex-1" >
                 <mat-icon svgIcon="{{routeLink.name}}"></mat-icon>
               </div>
-              <div style="margin-top: -10px;" fxFlex>{{routeLink.label}}</div>
+              <div style="margin-top: -10px;" class="flex-1" >{{routeLink.label}}</div>
             </div>
 
           </a>

@@ -20,7 +20,6 @@ import { MatInputModule } from '@angular/material/input';
 
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FormsModule } from '@angular/forms';
-import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -34,7 +33,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     CommonModule,
     AdminAreaRoutingModule,
     FormsModule,
-    FlexLayoutModule,
     MatButtonModule,
     MatCheckboxModule,
     MatListModule,

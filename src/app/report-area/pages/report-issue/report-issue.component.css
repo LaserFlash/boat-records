@@ -1,3 +1,11 @@
+.report-issue {
+  display: flex;
+  flex-direction: column;
+  max-width: 1280px;
+  margin: auto;
+  gap: 0.75rem;
+}
+
 .full-width {
   width: 100%;
 }
@@ -6,11 +14,11 @@
   color: #29b6f6;
 }
 
-::ng-deep .mat-vertical-stepper-header{
+::ng-deep .mat-vertical-stepper-header {
   padding-left: 0px !important;
   padding-right: 0px !important;
 }
 
-::ng-deep .mat-vertical-content-container{
+::ng-deep .mat-vertical-content-container {
   margin-left: 12px !important;
 }

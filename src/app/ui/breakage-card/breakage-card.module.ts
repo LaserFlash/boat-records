@@ -14,8 +14,6 @@ import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
 
-import { FlexLayoutModule } from '@angular/flex-layout';
-
 @NgModule({
   declarations: [
     BreakageCardComponent,
@@ -23,7 +21,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
   imports: [
     CommonModule,
     ModalModule,
-    FlexLayoutModule,
     MatCardModule,
     MatListModule,
     MatButtonModule,
