@@ -1,0 +1,21 @@
+{
+  "name": "NPYC Usage and Maintenance Tracker",
+  "short_name": "NPYC Boats",
+  "theme_color": "#AFB42B",
+  "background_color": "#AFB42B",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/",
+  "icons": [
+      {
+          "src": "assets/favicon/android-chrome-192x192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+      },
+      {
+          "src": "assets/favicon/android-chrome-256x256.png",
+          "sizes": "256x256",
+          "type": "image/png"
+      }
+  ],
+}

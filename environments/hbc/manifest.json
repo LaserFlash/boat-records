@@ -1,0 +1,21 @@
+{
+  "name": "HBC Usage and Maintenance Tracker",
+  "short_name": "HBC Boats",
+  "theme_color": "#607d8b",
+  "background_color": "#607d8b",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "assets/favicon/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/favicon/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
