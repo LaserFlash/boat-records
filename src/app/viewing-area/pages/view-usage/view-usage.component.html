@@ -1,25 +1,18 @@
-<div
-  class="noPrint"
-  fxFlex.gt-lg="calc(50% -1280px)"
-  fxFlex="20"
-  fxFlex.lt-md="2"
-></div>
-<div fxFlex.gt-lg="1280px" fxFlex="100" fxLayout="column">
-  <mat-card>
-    <div fxFlex="100" fxLayout="column" fxLayout.gt-md="row">
-      <button mat-flat-button color="primary" (click)="exportCSV()">Export to CSV</button>
-      <mat-paginator
-        [length]="usageService.batch_size * (usageService.pageIndex + 2)"
-        [pageSize]="usageService.batch_size"
-        [pageSizeOptions]="pageSizeOptions"
-        [pageIndex]="usageService.pageIndex"
-        (page)="getUsages($event)"
-        style="margin-left: auto;"
-      ></mat-paginator>
-    </div>
+<div class="view-usage">
+  <mat-card class="controls">
+    <button mat-flat-button color="primary" (click)="exportCSV()">
+      Export to CSV
+    </button>
+    <mat-paginator
+      [length]="usageService.batch_size * (usageService.pageIndex + 2)"
+      [pageSize]="usageService.batch_size"
+      [pageSizeOptions]="pageSizeOptions"
+      [pageIndex]="usageService.pageIndex"
+      (page)="getUsages($event)"
+      style="margin-left: auto"
+    ></mat-paginator>
   </mat-card>
   <usage-card
-    fxGrow
     *ngFor="
       let u of usageService.currentSelectedUsages | async;
       let i = index;
@@ -28,22 +21,16 @@
     [usage]="u"
   ></usage-card>
   <mat-card class="controls">
-    <div fxFlex="100" fxLayout="column" fxLayout.gt-md="row">
-      <button mat-flat-button color="primary" (click)="exportCSV()">Export to CSV</button>
-      <mat-paginator
-        [length]="usageService.batch_size * (usageService.pageIndex + 2)"
-        [pageSize]="usageService.batch_size"
-        [pageSizeOptions]="pageSizeOptions"
-        [pageIndex]="usageService.pageIndex"
-        (page)="getUsages($event)"
-        style="margin-left: auto;"
-      ></mat-paginator>
-    </div>
+    <button mat-flat-button color="primary" (click)="exportCSV()">
+      Export to CSV
+    </button>
+    <mat-paginator
+      [length]="usageService.batch_size * (usageService.pageIndex + 2)"
+      [pageSize]="usageService.batch_size"
+      [pageSizeOptions]="pageSizeOptions"
+      [pageIndex]="usageService.pageIndex"
+      (page)="getUsages($event)"
+      style="margin-left: auto"
+    ></mat-paginator>
   </mat-card>
 </div>
-<div
-  class="noPrint"
-  fxFlex.gt-lg="calc(50% -1280px)"
-  fxFlex="20"
-  fxFlex.lt-md="2"
-></div>

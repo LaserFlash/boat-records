@@ -1,3 +1,43 @@
+.report-usage {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-width: 820px;
+  margin: auto;
+}
+
+.report-card {
+  display: flex;
+  flex-direction: row;
+  gap: 0.75rem;
+}
+
+.report-form {
+  flex-basis: 60%;
+}
+
+.last-usage-card {
+  flex-basis: 40%;
+}
+
+.usage-graphs-card {
+  display: flex;
+  flex-direction: row;
+  gap: 0.75rem;
+}
+
+@media (width <=956px) {
+  .report-card,
+  .last-usage-card {
+    flex-basis: 98;
+  }
+
+  .report-card,
+  .usage-graphs-card {
+    flex-direction: column;
+  }
+}
+
 .radio-group {
   display: inline-flex;
   flex-direction: column;
@@ -7,16 +47,8 @@
   margin: 5px;
 }
 
-.card_top_pad {
-  margin-top: 10px;
-}
-
-.card_bottom_pad {
-  margin-bottom: 10px;
-}
-
-@media print{
-  .content{
-      min-height:40cm;
+@media print {
+  .content {
+    min-height: 40cm;
   }
 }

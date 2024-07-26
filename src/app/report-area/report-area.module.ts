@@ -42,7 +42,6 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatIconModule } from '@angular/material/icon';
 
 import { NgChartsModule } from 'ng2-charts';
-import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { FileUploadModule } from 'ng2-file-upload';
 import { CloudinaryModule } from '@cloudinary/angular-5.x';
@@ -64,7 +63,6 @@ import { SafePipe } from '../pipes/safe.pipe';
     CommonModule,
     ReportAreaRoutingModule,
     BreakageCardModule,
-    FlexLayoutModule,
     MatCardModule,
     MatToolbarModule,
     MatTabsModule,

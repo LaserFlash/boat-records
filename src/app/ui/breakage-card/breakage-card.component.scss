@@ -1,0 +1,90 @@
+.breakage-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+
+  .breakage-card {
+    position: relative;
+
+    &:has(.breakage-image) {
+      padding-bottom: 0;
+
+      .mat-card-actions {
+        height: 0;
+
+        > * {
+          position: relative;
+          top: -52px;
+        }
+      }
+    }
+
+    .card-content {
+      display: flex;
+      flex-direction: row;
+
+      > *:first-child {
+        flex-grow: 1;
+      }
+    }
+
+    .breakage-image {
+      flex-basis: 30%;
+    }
+  }
+
+  .breakage-card-left {
+    width: 200px;
+  }
+
+  .breakage-card-list {
+    list-style-type: none;
+    padding-left: 0px;
+  }
+
+  .breakage-card-details {
+    padding-right: 16px;
+    margin-right: 24px;
+  }
+
+  .remove-button {
+    width: 80px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+  }
+
+  .small-image {
+    display: none;
+  }
+
+  @media (width <= 959px) {
+    .card-content {
+      flex-direction: column !important;
+    }
+
+    .big-image {
+      display: none;
+    }
+
+    .small-image {
+      display: block;
+    }
+  }
+
+  ::ng-deep .mat-card-image {
+    max-height: 300px !important;
+    margin-bottom: -6px !important;
+    object-fit: cover;
+  }
+
+  @media (min-width: 600px) {
+    ::ng-deep .mat-card-image {
+      margin-bottom: -6px !important;
+      min-height: 350px !important;
+      object-fit: cover;
+      display: inline-block;
+    }
+  }
+}

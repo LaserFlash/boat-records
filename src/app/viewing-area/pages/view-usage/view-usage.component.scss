@@ -1,0 +1,22 @@
+.view-usage {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  max-width: 1000px;
+  margin: auto;
+
+  .controls {
+    display: flex;
+    flex-direction: row;
+
+    @media (width <=599px) {
+      flex-direction: column;
+    }
+  }
+
+  @media print {
+    .content {
+      min-height: 40cm;
+    }
+  }
+}

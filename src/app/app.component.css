@@ -78,6 +78,10 @@ mat-sidenav-container {
   bottom: 0;
   width: 100%;
   z-index: 10;
+
+  .mat-tab-links {
+    justify-content: space-around;
+  }
 }
 
 ::ng-deep .bottom-navigation .mat-tab-link {

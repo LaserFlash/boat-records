@@ -35,7 +35,6 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatPaginatorModule } from '@angular/material/paginator';
 
 import { NgChartsModule } from 'ng2-charts';
-import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -50,7 +49,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     CommonModule,
     ViewingAreaRoutingModule,
     BreakageCardModule,
-    FlexLayoutModule,
     MatCardModule,
     MatToolbarModule,
     MatTabsModule,

@@ -1,0 +1,7 @@
+.view-issues {
+  display: flex;
+  flex-direction: column;
+  max-width: 1000px;
+  margin: auto;
+  gap: 0.75rem;
+}

@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { SignupComponent } from './core/auth/signup/signup.component';
 
@@ -63,7 +62,6 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
     HammerModule,
     HttpClientModule,
     AppRoutingModule,
-    FlexLayoutModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule.enablePersistence(),
     AngularFireDatabaseModule,
